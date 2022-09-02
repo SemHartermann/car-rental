@@ -16,16 +16,17 @@ public class MySqlOrderBeanDAO implements OrderBeanDAO {
 
     private static final Logger LOG = Logger.getLogger(MySqlOrderBeanDAO.class);
     private static final String SQL_GET_USER_ORDER_BEANS = "SELECT o.id, i.last_name, i.first_name, "
-            + "c.name, o.driver_status, o.order_data, o.return_data, o.order_price, "
-            + "s.name AS status_name, o.rejection_reason, o.damage, o.price_for_repairs "
-            + "FROM car_orders o, cars c, statuses s,  users_info i WHERE o.user_id=i.user_id "
+            + "c.model, o.driver_status, o.start_date, o.end_date, o.price, "
+            + "s.model AS status_name, o.rejection_reason, o.damage, o.price_for_repairs "
+            + "FROM `order` o, car c, order_status s,  user_info i WHERE o.user_id=i.user_id "
             + "AND o.car_id=c.id AND o.status_id=s.id;";
 
     private static final String SQL_GET_USER_ORDER_BEANS_BY_USER_ID = "SELECT o.id, i.last_name, i.first_name, "
-            + "c.name, o.driver_status, o.order_data, o.return_data, o.order_price, "
+            + "c.model, o.driver_status, o.start_date, o.end_date, o.price, "
             + "s.name AS status_name, o.rejection_reason, o.damage, o.price_for_repairs "
-            + "FROM car_orders o, cars c, statuses s,  users_info i WHERE o.user_id=i.user_id "
+            + "FROM `order` o, car c, order_status s,  user_info i WHERE o.user_id=i.user_id "
             + "AND o.car_id=c.id AND o.status_id=s.id AND o.user_id=?;";
+
 
 
     public List<UserOrderBean> getUserOrderBeans() throws DBException {
@@ -56,10 +57,10 @@ public class MySqlOrderBeanDAO implements OrderBeanDAO {
 
 
         try (Connection con = DBManager.getInstance().getConnection();
-             PreparedStatement pstmt = con.prepareStatement(SQL_GET_USER_ORDER_BEANS_BY_USER_ID);
-             ResultSet rs = pstmt.executeQuery();){
+             PreparedStatement pstmt = con.prepareStatement(SQL_GET_USER_ORDER_BEANS_BY_USER_ID);){
 
             pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 orderUserBeanList.add(extractUserOrderBean(rs));
             }

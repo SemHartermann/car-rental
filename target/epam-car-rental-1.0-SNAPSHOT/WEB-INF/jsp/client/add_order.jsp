@@ -41,12 +41,12 @@ Defines the web form.
 						<input type="checkbox" name="driverStatus"/><br/>
 					</fieldset><br/>
 					<fieldset >
-					<legend><fmt:message key='add_order.orderData'/></legend>
-						<input type="date" name="orderData" required max="${yearsAfterDate}" min="${currentDate}"/><br/>
+					<legend><fmt:message key='add_order.startDate'/></legend>
+						<input type="date" name="startDate" required max="${yearsAfterDate}" min="${currentDate}"/><br/>
 					</fieldset><br/><br/>
 					<fieldset >
-						<legend><fmt:message key='add_order.returnData'/></legend>
-						<input type="date" name="returnData" required max="${yearsAfterDate}" min="${currentDate}" /><br/>
+						<legend><fmt:message key='add_order.endDate'/></legend>
+						<input type="date" name="endDate" required max="${yearsAfterDate}" min="${currentDate}" /><br/>
 					</fieldset><br/>
 					
 					<input type="submit" value="<fmt:message key='add_order.button'/>">		

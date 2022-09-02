@@ -28,8 +28,8 @@
 						<td><fmt:message key='list_orders_by_user_id.client'/></td>
 						<td><fmt:message key='list_orders_by_user_id.car'/></td>
 						<td><fmt:message key='list_orders_by_user_id.driverStatus'/></td>
-						<td><fmt:message key='list_orders_by_user_id.orderData'/></td>
-						<td><fmt:message key='list_orders_by_user_id.returnData'/></td>
+						<td><fmt:message key='list_orders_by_user_id.startDate'/></td>
+						<td><fmt:message key='list_orders_by_user_id.endDate'/></td>
 						<td><fmt:message key='list_orders_by_user_id.price'/></td>
 						<td><fmt:message key='list_orders_by_user_id.status'/></td>
 						<td><fmt:message key='list_orders_by_user_id.rejectionReason'/></td>
@@ -47,8 +47,8 @@
 						<td>${bean.userLastName} ${bean.userFirstName}</td>
 						<td>${bean.carName}</td>
 						<td>${bean.driverStatus}</td>
-						<td>${bean.orderData}</td>
-						<td>${bean.returnData}</td>
+						<td>${bean.startDate}</td>
+						<td>${bean.endDate}</td>
 						<td>${bean.orderPrice}</td>
 						<td>${bean.statusName}</td>
 						<td>${bean.rejectionReason}</td>

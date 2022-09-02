@@ -15,8 +15,6 @@ public class Order extends Entity {
 
     private int price;
 
-    private int driverPrice;
-
     private int statusId;
 
     private String rejectionReason;
@@ -24,6 +22,36 @@ public class Order extends Entity {
     private Date startDate;
 
     private Date endDate;
+
+    private boolean damage;
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isDamage() {
+        return damage;
+    }
+
+    public void setDamage(boolean damage) {
+        this.damage = damage;
+    }
+
+    public int getPriceForRepairs() {
+        return priceForRepairs;
+    }
+
+    public void setPriceForRepairs(int priceForRepairs) {
+        this.priceForRepairs = priceForRepairs;
+    }
+
+    private int priceForRepairs;
 
     public int getUserId() {
         return userId;

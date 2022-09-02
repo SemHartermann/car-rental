@@ -103,10 +103,10 @@ public class MySqlOrderDAO implements OrderDAO {
         Order order = new Order();
 
         try (Connection con = DBManager.getInstance().getConnection();
-             PreparedStatement pstmt = con.prepareStatement(SQL_FIND_ORDERS_BY_ID);
-             ResultSet rs = pstmt.executeQuery()){
+             PreparedStatement pstmt = con.prepareStatement(SQL_FIND_ORDERS_BY_ID);){
 
             pstmt.setLong(1, id);
+            ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 order = extractOrder(rs);
             }
