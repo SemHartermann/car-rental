@@ -1,6 +1,6 @@
 package web.command;
 
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * No command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class NoCommand extends Command {
 
 	private static final long serialVersionUID = 998813771460389541L;

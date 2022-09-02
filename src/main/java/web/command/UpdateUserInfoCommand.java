@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.UserInfo;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -12,12 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Update user info command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class UpdateUserInfoCommand extends Command {
 
 	private static final long serialVersionUID = 4117087725692801116L;
@@ -65,7 +60,7 @@ public class UpdateUserInfoCommand extends Command {
 			LOG.error("Set the session attribute: errorMessage --> "
 					+ errorMessasge);
 			LOG.debug("UpdateUserInfoCommand finished");
-			return Path.PAGE_ERROR_PAGE;
+			return web.Path.PAGE_ERROR_PAGE;
 		}*/
 
 		LOG.trace("Update userInfo --> " + userInfo);

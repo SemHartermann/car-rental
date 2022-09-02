@@ -5,12 +5,6 @@ import org.apache.log4j.Logger;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Holder for all commands.
- * 
- * @author A.Yegorov
- *
- */
 public class CommandContainer {
 
 	private static final Logger LOG = Logger.getLogger(CommandContainer.class);

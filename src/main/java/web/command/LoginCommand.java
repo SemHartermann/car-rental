@@ -3,7 +3,7 @@ package web.command;
 import db.entities.enums.Role;
 import db.dao.DaoFactory;
 import db.entities.User;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 import util.DateUtil;
@@ -16,12 +16,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
-/**
- * Login command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class LoginCommand extends Command {
 
 	private static final long serialVersionUID = -1071012092354190852L;

@@ -3,7 +3,7 @@ package web.command;
 import db.entities.enums.Role;
 import db.dao.DaoFactory;
 import db.entities.User;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -13,15 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Add manager command.
- * 
- * @author A.Yegorov
- *
- */
 public class AddManagerCommand extends Command {
 
-	private static final long serialVersionUID = 2429350443577661410L;
 
 	private static final Logger LOG = Logger.getLogger(AddManagerCommand.class);
 

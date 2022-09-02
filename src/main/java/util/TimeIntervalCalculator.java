@@ -11,7 +11,7 @@ public class TimeIntervalCalculator {
     public static int getDays(Date startDate, Date endDate) {
 
         LOG.info("Start date = "+startDate);
-        LOG.info("Start date = "+startDate);
+        LOG.info("End date = "+endDate);
 
         return (int) TimeUnit.MILLISECONDS.toDays(endDate.getTime()
                 - startDate.getTime());

@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.UserInfo;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -14,12 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Client command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class ClientCommand extends Command {
 
 	private static final long serialVersionUID = -7187214861283892786L;

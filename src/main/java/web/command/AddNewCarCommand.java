@@ -3,7 +3,7 @@ package web.command;
 import db.DBManager;
 import db.dao.DaoFactory;
 import db.entities.Car;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -13,15 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Add new car command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class AddNewCarCommand extends Command {
 
-	private static final long serialVersionUID = -5788346932961037607L;
+
 
 	private static final Logger LOG = Logger.getLogger(AddNewCarCommand.class);
 

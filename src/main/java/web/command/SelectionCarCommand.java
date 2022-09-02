@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.Car;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -13,12 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Selection car by mark/class command.
- * 
- * @author A.Yegorov
- *
- */
 public class SelectionCarCommand extends Command {
 
 	private static final long serialVersionUID = 9075004413679639935L;

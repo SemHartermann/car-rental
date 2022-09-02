@@ -3,8 +3,12 @@ package db.dao.mysql;
 
 import db.DBManager;
 import db.Fields;
+import db.dao.DaoFactory;
 import db.dao.OrderDAO;
 import db.entities.Order;
+import db.exceptions.DBException;
+import db.exceptions.Messages;
+import org.apache.log4j.Logger;
 import util.PriceCalculator;
 import util.TimeIntervalCalculator;
 
@@ -14,20 +18,22 @@ import java.util.List;
 
 public class MySqlOrderDAO implements OrderDAO {
 
-    private static final String SQL_FIND_ALL_ORDERS = "SELECT * FROM order";
+    private static final Logger LOG = Logger.getLogger(MySqlOrderDAO.class);
 
-    private static final String SQL_FIND_ORDERS_BY_USER_ID = "SELECT * FROM order WHERE user_id=?";
+    private static final String SQL_FIND_ALL_ORDERS = "SELECT * FROM `order`";
 
-    private static final String SQL_FIND_ORDERS_BY_ID = "SELECT * FROM order WHERE id=?";
+    private static final String SQL_FIND_ORDERS_BY_USER_ID = "SELECT * FROM `order` WHERE user_id=?";
 
-    private static final String SQL_CREATE_NEW_ORDER = "INSERT INTO order (user_id, car_id, driver_status, "
-            + "order_data, return_data, order_price) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String SQL_FIND_ORDERS_BY_ID = "SELECT * FROM `order` WHERE id=?";
 
-    private static final String SQL_UPDATE_ORDER_STATUS = "UPDATE order SET status_id=? WHERE id=?";
+    private static final String SQL_CREATE_NEW_ORDER = "INSERT INTO `order` (user_id, car_id, driver_status, "
+            + "start_date, end_date, price) VALUES (?, ?, ?, ?, ?, ?)";
 
-    private static final String SQL_UPDATE_ORDER_STATUS_REJ = "UPDATE order SET status_id=?, rejection_reason=? WHERE id=?";
+    private static final String SQL_UPDATE_ORDER_STATUS = "UPDATE `order` SET status_id=? WHERE id=?";
 
-    private static final String SQL_UPDATE_ORDER_RETURN = "UPDATE order SET status_id=?, damage=?, price_for_repairs=? WHERE id=?";
+    private static final String SQL_UPDATE_ORDER_STATUS_REJ = "UPDATE `order` SET status_id=?, rejection_reason=? WHERE id=?";
+
+        private static final String SQL_UPDATE_ORDER_RETURN = "UPDATE `order` SET status_id=?, damage=?, price_for_repairs=? WHERE id=?";
 
     public Order extractOrder(ResultSet rs) {
         Order order = new Order();
@@ -51,17 +57,21 @@ public class MySqlOrderDAO implements OrderDAO {
         List<Order> ordersList = new ArrayList<>();
 
         try (Connection con = DBManager.getInstance().getConnection();
-             Statement stmt = con.createStatement();
-             ResultSet rs = stmt.executeQuery(SQL_FIND_ALL_ORDERS);){
-
+             Statement stmt = con.createStatement();){
+            ResultSet rs = stmt.executeQuery(SQL_FIND_ALL_ORDERS);
             while (rs.next()) {
                 ordersList.add(extractOrder(rs));
             }
             /*con.commit();*/
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDERS, ex);*/
-            ex.printStackTrace();
+            /*rollback(con);*/
+            try {
+                throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDERS, ex);
+            } catch (DBException e) {
+                ex.printStackTrace();
+                throw new RuntimeException(e);
+            }
+
         } finally {
 
         }
@@ -72,10 +82,10 @@ public class MySqlOrderDAO implements OrderDAO {
         List<Order> ordersList = new ArrayList<>();
 
         try (Connection con = DBManager.getInstance().getConnection();
-             PreparedStatement pstmt = con.prepareStatement(SQL_FIND_ORDERS_BY_USER_ID);
-             ResultSet rs = pstmt.executeQuery();) {
+             PreparedStatement pstmt = con.prepareStatement(SQL_FIND_ORDERS_BY_USER_ID);) {
 
             pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 ordersList.add(extractOrder(rs));
             }
@@ -121,20 +131,21 @@ public class MySqlOrderDAO implements OrderDAO {
             pstmt.setInt(1, order.getUserId());
             pstmt.setInt(2, order.getCarId());
             pstmt.setBoolean(3, order.isDriverStatus());
+            LOG.info(order.getStartDate());
             pstmt.setDate(4, order.getStartDate());
             pstmt.setDate(5, order.getEndDate());
 
             int days = TimeIntervalCalculator.getDays(order.getStartDate(),order.getEndDate());
             int price = PriceCalculator.getPrice(
-                    new MySqlCarDAO().findCarById(order.getCarId()).getCarPrice(),
-                    new MySqlCarDAO().findCarById(order.getCarId()).getCarDriverPrice(),
+                    DaoFactory.getCarDaoInstance().findCarById(order.getCarId()).getCarPrice(),
+                    DaoFactory.getCarDaoInstance().findCarById(order.getCarId()).getCarDriverPrice(),
                     days);
 
             pstmt.setInt(6, price);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
-            /*rollback(con);
-            LOG.error(Messages.ERR_CANNOT_CREATE_ORDER, ex);*/
+            /*rollback(con);*/
+            LOG.error(Messages.ERR_CANNOT_CREATE_ORDER, ex);
             ex.printStackTrace();
         } finally {
 

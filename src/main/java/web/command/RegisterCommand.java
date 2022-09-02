@@ -3,7 +3,7 @@ package web.command;
 import db.entities.enums.Role;
 import db.dao.DaoFactory;
 import db.entities.User;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -14,12 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Register command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class RegisterCommand extends Command {
 
 	private static final long serialVersionUID = -628192664155997686L;

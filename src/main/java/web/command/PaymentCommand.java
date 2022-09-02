@@ -3,7 +3,7 @@ package web.command;
 import db.entities.enums.Status;
 import db.dao.DaoFactory;
 import db.entities.Order;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -13,12 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Payment command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class PaymentCommand extends Command {
 
 	private static final long serialVersionUID = 1460935973291429009L;

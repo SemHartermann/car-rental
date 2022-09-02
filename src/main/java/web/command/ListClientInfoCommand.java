@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.UserInfoBean;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -15,13 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * List clients info command.
- * <p>Uses UserInfoBean entity.
- * 
- * @author A.Yegorov
- *
- */
+
 public class ListClientInfoCommand extends Command {
 
 	private static final long serialVersionUID = 2355012921147521257L;

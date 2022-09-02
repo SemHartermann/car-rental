@@ -3,7 +3,7 @@ package web.filter;
 import db.entities.enums.Role;
 import db.dao.DaoFactory;
 import db.entities.User;
-import Path;
+import web.Path;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;

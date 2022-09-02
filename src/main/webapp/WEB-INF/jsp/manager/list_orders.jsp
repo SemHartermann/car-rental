@@ -27,8 +27,8 @@
 						<td><fmt:message key='list_orders.client'/></td>
 						<td><fmt:message key='list_orders.car'/></td>
 						<td><fmt:message key='list_orders.driverStatus'/></td>
-						<td><fmt:message key='list_orders.orderData'/></td>
-						<td><fmt:message key='list_orders.returnData'/></td>
+						<td><fmt:message key='list_orders.startDate'/></td>
+						<td><fmt:message key='list_orders.endDate'/></td>
 						<td><fmt:message key='list_orders.price'/></td>
 						<td><fmt:message key='list_orders.status'/></td>
 						<td><fmt:message key='list_orders.rejectionReason'/></td>
@@ -46,8 +46,8 @@
 						<td>${bean.userLastName} ${bean.userFirstName}</td>
 						<td>${bean.carName}</td>
 						<td>${bean.driverStatus}</td>
-						<td>${bean.orderData}</td>
-						<td>${bean.returnData}</td>
+						<td>${bean.startDate}</td>
+						<td>${bean.endDate}</td>
 						<td>${bean.orderPrice}</td>
 						<td>${bean.statusName}</td>
 						<td>${bean.rejectionReason}</td>

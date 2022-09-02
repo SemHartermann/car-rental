@@ -1,6 +1,6 @@
 package web.command;
 
-import Path;
+import web.Path;
 import db.exceptions.DBException;
 import org.apache.log4j.Logger;
 
@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 
-/**
- * Change locale command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class ChangeLocaleCommand extends Command {
 	private static final long serialVersionUID = 1L;
 

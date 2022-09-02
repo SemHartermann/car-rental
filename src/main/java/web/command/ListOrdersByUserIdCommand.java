@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.UserOrderBean;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -16,13 +16,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * List orders by user id command.
- * <p>Uses UserOrderBean entity.
- * 
- * @author A.Yegorov
- *
- */
+
 public class ListOrdersByUserIdCommand extends Command {
 
 	private static final long serialVersionUID = -2643445277960241733L;

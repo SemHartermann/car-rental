@@ -13,10 +13,6 @@ public class Order extends Entity {
 
     private boolean driverStatus;
 
-    private Date startDate;
-
-    private Date endDate;
-
     private int price;
 
     private int driverPrice;
@@ -24,6 +20,10 @@ public class Order extends Entity {
     private int statusId;
 
     private String rejectionReason;
+
+    private Date startDate;
+
+    private Date endDate;
 
     public int getUserId() {
         return userId;
@@ -53,7 +53,7 @@ public class Order extends Entity {
         return startDate;
     }
 
-    public void setStartDate(Date endDate) {
+    public void  setStartDate(Date endDate) {
         this.startDate = endDate;
     }
 
@@ -70,6 +70,7 @@ public class Order extends Entity {
     }
 
     public void setPrice(int orderPrice) { this.price = orderPrice; }
+
 
 
 

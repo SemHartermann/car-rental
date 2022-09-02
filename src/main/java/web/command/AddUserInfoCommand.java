@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.UserInfo;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -12,12 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Add user info command.
- * 
- * @author A.Yegorov
- *
- */
 public class AddUserInfoCommand extends Command {
 
 	private static final long serialVersionUID = 2804659692088333640L;

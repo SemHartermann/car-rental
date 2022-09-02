@@ -1,6 +1,6 @@
 package web.command;
 
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * View change user status command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class ViewChangeUserStatusCommand extends Command {
 
 	private static final long serialVersionUID = 6877145183829473251L;

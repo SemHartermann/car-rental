@@ -8,7 +8,7 @@
     <short-name>t</short-name>
     <tag>
     <name>NewTag</name>
-    <tag-class>epam.zhivotov.new_tag.NewTag</tag-class>
+    <tag-class>new_tag.NewTag</tag-class>
     <body-content>empty</body-content>
     </tag>
 </taglib>
@@ -23,7 +23,7 @@
 <short-name>t</short-name>
 <tag>
     <name>NewTag</name>
-    <tag-class>epam.zhivotov.new_tag.NewTag</tag-class>
+    <tag-class>new_tag.NewTag</tag-class>
     <body-content>empty</body-content>
 </tag>
 </taglib>-->

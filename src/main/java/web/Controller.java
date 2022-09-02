@@ -1,6 +1,5 @@
 package web;
 
-import Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 import web.command.Command;

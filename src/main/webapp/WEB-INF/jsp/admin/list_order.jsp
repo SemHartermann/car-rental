@@ -27,8 +27,8 @@
 						<td><fmt:message key='list_order.userId'/></td>
 						<td><fmt:message key='list_order.carId'/></td>
 						<td><fmt:message key='list_order.driverStatus'/></td>
-						<td><fmt:message key='list_order.orderData'/></td>
-						<td><fmt:message key='list_order.returnData'/></td>
+						<td><fmt:message key='list_order.startDate'/></td>
+						<td><fmt:message key='list_order.endDate'/></td>
 						<td><fmt:message key='list_order.price'/></td>
 						<td><fmt:message key='list_order.status'/></td>
 						<td><fmt:message key='list_order.rejectionReason'/></td>
@@ -46,8 +46,8 @@
 						<td>${order.userId}</td>
 						<td>${order.carId}</td>
 						<td>${order.driverStatus}</td>
-						<td>${order.orderData}</td>
-						<td>${order.returnData}</td>
+						<td>${order.startDate}</td>
+						<td>${order.endDate}</td>
 						<td>${order.orderPrice}</td>
 						<td>${order.statusId}</td>
 						<td>${order.rejectionReason}</td>

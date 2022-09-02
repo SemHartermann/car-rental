@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.Car;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -14,12 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * View selection car command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class ViewSelectionCommand extends Command {
 
 	private static final long serialVersionUID = 5436792136235525560L;

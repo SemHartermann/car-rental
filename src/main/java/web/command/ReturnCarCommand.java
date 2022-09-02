@@ -3,7 +3,7 @@ package web.command;
 import db.entities.enums.Status;
 import db.dao.DaoFactory;
 import db.entities.Order;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -13,12 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Return car command.
- * 
- * @author A.Yegorov
- *
- */
 public class ReturnCarCommand extends Command {
 
 	private static final long serialVersionUID = -5830610361996655024L;
@@ -78,7 +72,7 @@ public class ReturnCarCommand extends Command {
 				LOG.error("Set the session attribute: errorMessage --> "
 						+ errorMessasge);
 				LOG.debug("ReturnCarCommand finished");
-				return Path.PAGE_ERROR_PAGE;
+				return web.Path.PAGE_ERROR_PAGE;
 			} else {
 				int priceForRepairs = Integer.valueOf(price);
 				order.setPriceForRepairs(priceForRepairs);

@@ -2,7 +2,7 @@ package web.command;
 
 import db.dao.DaoFactory;
 import db.entities.Order;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -14,12 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Get orders list command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class GetOrdersListCommand extends Command {
 
 	private static final long serialVersionUID = -8011052320323983859L;

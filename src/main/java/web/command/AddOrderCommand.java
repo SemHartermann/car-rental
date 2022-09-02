@@ -3,7 +3,7 @@ package web.command;
 import db.dao.DaoFactory;
 import db.entities.Car;
 import db.entities.Order;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -12,19 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Add order command.
- *
- * @author A.Yegorov
- *
- */
+
 public class AddOrderCommand extends Command {
 
-	private static final long serialVersionUID = 7474543721675983647L;
 
 	private static final Logger LOG = Logger.getLogger(AddOrderCommand.class);
 
@@ -89,31 +84,30 @@ public class AddOrderCommand extends Command {
 		LOG.trace("Request parameter: driverStatus --> "
 				+ order.isDriverStatus());
 
-		/*String orderDataS = request.getParameter("orderData");
-		String returnDataS = request.getParameter("returnData");
+		String startDataS = request.getParameter("startDate");
+		String endDataS = request.getParameter("endDate");
 
-		if (orderDataS == null || orderDataS.isEmpty() || returnDataS == null
-				|| returnDataS.isEmpty()) {
+		if (startDataS == null || startDataS.isEmpty() || endDataS == null
+				|| endDataS.isEmpty()) {
 			String errorMessasge = "Date cannot be empty";
 			session.setAttribute("errorMessage", errorMessasge);
 			LOG.error("Set the session attribute: errorMessage --> "
 					+ errorMessasge);
 			LOG.debug("AddOrderCommand finished");
-			return Path.PAGE_ERROR_PAGE;
+			return web.Path.PAGE_ERROR_PAGE;
 		}
 
-		Date orderData = Date.valueOf(orderDataS);
-		order.setOrderData(orderData);
-		LOG.trace("Request parameter: orderData --> " + order.getOrderData());
+		Date orderData = Date.valueOf(startDataS);
+		order.setStartDate(orderData);
+		LOG.trace("Request parameter: orderData --> " + order.getStartDate());
 
-		Date returnData = Date.valueOf(returnDataS);
-		order.setReturnData(returnData);
-		LOG.trace("Request parameter: returnData --> " + order.getReturnData());*/
+		Date returnData = Date.valueOf(endDataS);
+		order.setEndDate(returnData);
+		LOG.trace("Request parameter: returnData --> " + order.getEndDate());
 
 		DaoFactory.getOrderDaoInstance().addOrder(order);
 		LOG.trace("Create new order --> " + order);
 
-		// find this order in db and get order price
 		List<Order> orders = DaoFactory.getOrderDaoInstance().findOrdersByUserId(userId);
 
 		Collections.sort(orders, new Comparator<Order>() {

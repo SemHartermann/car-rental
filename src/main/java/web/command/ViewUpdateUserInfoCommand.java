@@ -1,7 +1,7 @@
 package web.command;
 
 import db.dao.DaoFactory;
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 

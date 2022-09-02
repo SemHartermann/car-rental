@@ -1,3 +1,5 @@
+package web;
+
 public final class Path {
 
     // pages

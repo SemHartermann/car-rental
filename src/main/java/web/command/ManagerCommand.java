@@ -1,6 +1,6 @@
 package web.command;
 
-import Path;
+import web.Path;
 import db.exceptions.AppException;
 import org.apache.log4j.Logger;
 
@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Manager command.
- * 
- * @author A.Yegorov
- *
- */
+
 public class ManagerCommand extends Command {
 
 	private static final long serialVersionUID = -6803735476158533651L;
