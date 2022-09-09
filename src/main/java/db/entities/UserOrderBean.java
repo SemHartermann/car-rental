@@ -1,7 +1,5 @@
 package db.entities;
 
-import db.entities.Entity;
-
 import java.sql.Date;
 
 
@@ -19,9 +17,9 @@ public class UserOrderBean extends Entity {
 
 	private boolean driverStatus;
 
-	private Date orderData;
+	private Date startDate;
 
-	private Date returnData;
+	private Date endDate;
 
 	private int orderPrice;
 
@@ -73,20 +71,20 @@ public class UserOrderBean extends Entity {
 		this.driverStatus = driverStatus;
 	}
 
-	public Date getOrderData() {
-		return orderData;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setOrderData(Date orderData) {
-		this.orderData = orderData;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public Date getReturnData() {
-		return returnData;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setReturnData(Date returnData) {
-		this.returnData = returnData;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
 	public int getOrderPrice() {
@@ -134,7 +132,7 @@ public class UserOrderBean extends Entity {
 		return "UserOrderBean [orderId=" + orderId + ", userFirstName="
 				+ userFirstName + ", userLastName=" + userLastName
 				+ ", carName=" + carName + ", driverStatus=" + driverStatus
-				+ ", orderData=" + orderData + ", returnData=" + returnData
+				+ ", startDate=" + startDate + ", endDate=" + endDate
 				+ ", orderPrice=" + orderPrice + ", statusName=" + statusName
 				+ ", rejectionReason=" + rejectionReason + ", damage=" + damage
 				+ ", priceForRepairs=" + priceForRepairs + "]";

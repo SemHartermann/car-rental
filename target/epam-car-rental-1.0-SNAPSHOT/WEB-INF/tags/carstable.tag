@@ -18,8 +18,8 @@
 	<table>
 		<tr>
 			<td rowspan="3" colspan="5" align="center">
-			<img
-				style="background: url('images/cars/id/${id}.jpg'); width:330px; height:200px; border: 0px; border-radius:20px; -webkit-border-radius:20px; -moz-border-radius:20px;">
+			<img style="background: url('images/cars/id/${id}.jpg'); width:330px; height:200px;
+					border: 0px; border-radius:20px; -webkit-border-radius:20px; -moz-border-radius:20px;">
 			<td width="100px" align="center"><fmt:message key='carstable.number'/></td>
 			<td width="100px" align="center"><fmt:message key='carstable.model'/></td>
 			<td width="100px" align="center"><fmt:message key='carstable.mark'/></td>

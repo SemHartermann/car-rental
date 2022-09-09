@@ -19,12 +19,11 @@ import java.util.List;
 
 public class ListOrdersByUserIdCommand extends Command {
 
-	private static final long serialVersionUID = -2643445277960241733L;
 
 	private static final Logger LOG = Logger
 			.getLogger(ListOrdersByUserIdCommand.class);
 
-	private static Comparator<UserOrderBean> compareById = new CompareById();
+	private static final Comparator<UserOrderBean> compareById = new CompareById();
 
 	@Override
 	public String execute(HttpServletRequest request,
@@ -33,14 +32,14 @@ public class ListOrdersByUserIdCommand extends Command {
 		LOG.debug("ListOrdersByUserIdCommand starts");
 
 		HttpSession session = request.getSession();
-		int userId = (int) session.getAttribute("userId");
+		int userId = Integer.parseInt(String.valueOf(session.getAttribute("userId")));
 		LOG.trace("Get user id -->" + userId);
 
 		List<UserOrderBean> userOrderBeanList = DaoFactory.getOrderBeanDAO().getUserOrderBeansByUserId(userId);
 		LOG.trace("Found in DB: userOrderBeanListByUserId --> "
 				+ userOrderBeanList);
 
-		Collections.sort(userOrderBeanList, compareById);
+		userOrderBeanList.sort(compareById);
 
 		request.setAttribute("userOrderBeanListByUserId", userOrderBeanList);
 		LOG.trace("Set the request attribute: userOrderBeanList --> "
@@ -60,7 +59,6 @@ public class ListOrdersByUserIdCommand extends Command {
 	 */
 	private static class CompareById implements Comparator<UserOrderBean>,
 			Serializable {
-		private static final long serialVersionUID = -1573481565177573283L;
 
 		public int compare(UserOrderBean bean1, UserOrderBean bean2) {
 			return bean1.getId() - bean2.getId();

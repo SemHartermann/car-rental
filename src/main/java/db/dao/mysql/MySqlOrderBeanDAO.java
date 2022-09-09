@@ -17,7 +17,7 @@ public class MySqlOrderBeanDAO implements OrderBeanDAO {
     private static final Logger LOG = Logger.getLogger(MySqlOrderBeanDAO.class);
     private static final String SQL_GET_USER_ORDER_BEANS = "SELECT o.id, i.last_name, i.first_name, "
             + "c.model, o.driver_status, o.start_date, o.end_date, o.price, "
-            + "s.model AS status_name, o.rejection_reason, o.damage, o.price_for_repairs "
+            + "s.name AS status_name, o.rejection_reason, o.damage, o.price_for_repairs "
             + "FROM `order` o, car c, order_status s,  user_info i WHERE o.user_id=i.user_id "
             + "AND o.car_id=c.id AND o.status_id=s.id;";
 
@@ -83,11 +83,11 @@ public class MySqlOrderBeanDAO implements OrderBeanDAO {
                 .getString(Fields.USER_ORDER_BEAN_USER_LAST_NAME));
         bean.setUserFirstName(rs
                 .getString(Fields.USER_ORDER_BEAN_USER_FIRST_NAME));
-        bean.setCarName(rs.getString(Fields.USER_ORDER_BEAN_CAR_NAME));
+        bean.setCarName(rs.getString(Fields.USER_ORDER_BEAN_CAR_MODEL));
         bean.setDriverStatus(rs
                 .getBoolean(Fields.USER_ORDER_BEAN_DRIVER_STATUS));
-        bean.setOrderData(rs.getDate(Fields.USER_ORDER_BEAN_DATA_ORDER));
-        bean.setReturnData(rs.getDate(Fields.USER_ORDER_BEAN_DATA_RETURN));
+        bean.setStartDate(rs.getDate(Fields.USER_ORDER_BEAN_DATE_START));
+        bean.setEndDate(rs.getDate(Fields.USER_ORDER_BEAN_DATE_END));
         bean.setOrderPrice(rs.getInt(Fields.USER_ORDER_BEAN_ORDER_PRICE));
         bean.setStatusName(rs.getString(Fields.USER_ORDER_BEAN_STATUS_NAME));
         bean.setRejectionReason(rs

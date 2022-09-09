@@ -19,14 +19,14 @@ public class MySqlUserInfoBeanDAO implements UserInfoBeanDAO {
     private static final Logger LOG = Logger.getLogger(MySqlUserInfoBeanDAO.class);
 
 
-    private static final String SQL_GET_USER_INFO_BEANS = "SELECT u.id, u.login, u.password, "
-            + "i.first_name, i.last_name, i.passport_number, i.phone_number, i.email, "
-            + "u.user_status FROM users u, users_info i WHERE i.user_id=u.id;";
+    private static final String SQL_GET_USER_INFO_BEANS = "SELECT u.id, u.email, u.password, "
+            + "i.first_name, i.last_name, i.passport_number, i.phone_number, "
+            + "u.status FROM user u, user_info i WHERE i.user_id=u.id;";
 
     public UserInfoBean extractUserInfoBean(ResultSet rs) throws SQLException {
         UserInfoBean bean = new UserInfoBean();
         bean.setId(rs.getInt(Fields.USER_INFO_BEAN_USER_ID));
-        bean.setLogin(rs.getString(Fields.USER_INFO_BEAN_LOGIN));
+        bean.setLogin(rs.getString(Fields.USER_INFO_BEAN_EMAIL));
         bean.setPassword(rs.getString(Fields.USER_INFO_BEAN_PASSWORD));
         bean.setFirstName(rs.getString(Fields.USER_INFO_BEAN_FIRST_NAME));
         bean.setLastName(rs.getString(Fields.USER_INFO_BEAN_LAST_NAME));

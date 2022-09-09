@@ -26,7 +26,7 @@
 				</form> <c:if test="${fn:length(param.sort) > 0}">
 					<c:forEach var="car" items="${carsList}">
 
-					<myT:carstable driverPrice="${car.driverPrice}" name="${car.name}" price="${car.price}" carClass="${car.carClass}" mark="${car.mark}" id="${car.id}"></myT:carstable>
+					<myT:carstable driverPrice="${car.driverPrice}" model="${car.model}" price="${car.price}" carClass="${car.carClass}" mark="${car.mark}" id="${car.id}"></myT:carstable>
 
 					</c:forEach>
 				</c:if>

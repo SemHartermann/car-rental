@@ -14,13 +14,13 @@ public class ViewListCarsCommand extends Command {
 
 	private static final long serialVersionUID = 542160985642352754L;
 
-	private static final Logger LOG = Logger
-			.getLogger(ViewListCarsCommand.class);
+	private static final Logger LOG = Logger.getLogger(ViewListCarsCommand.class);
 
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException,
             AppException {
 		LOG.debug("ViewListCarsCommand starts");
+
 		LOG.debug("ViewListCarsCommand finished");
 		return Path.PAGE_LIST_CARS_SORT;
 

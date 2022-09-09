@@ -36,7 +36,8 @@
 				</form> 
 					<c:forEach var="car" items="${selectCars}">
 
-					<myT:carstable driverPrice="${car.driverPrice}" name="${car.name}" price="${car.price}" carClass="${car.carClass}" mark="${car.mark}" id="${car.id}"></myT:carstable>
+					<myT:carstable driverPrice="${car.driverPrice}" model="${car.model}" price="${car.price}"
+								   carClass="${car.carClass}" mark="${car.mark}" id="${car.id}"></myT:carstable>
 
 					</c:forEach>
 				<%@ include file="/WEB-INF/jspf/footer.jspf"%>

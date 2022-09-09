@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SelectionCarCommand extends Command {
-
-	private static final long serialVersionUID = 9075004413679639935L;
 
 	private static final Logger LOG = Logger.getLogger(ListCarsCommand.class);
 
@@ -28,26 +28,22 @@ public class SelectionCarCommand extends Command {
 		List<Car> cars = DaoFactory.getCarDaoInstance().findAvailableCars();
 		LOG.trace("Found in DB: cars --> " + cars);
 
-		List<Car> selectCars = new ArrayList<Car>();
+		List<Car> selectCars;
 
 		String selectByMark = request.getParameter("selectionByMark");
 		LOG.trace("Found in DB: selectByMark --> " + selectByMark);
 		String selectByClass = request.getParameter("selectionByClass");
 		LOG.trace("Found in DB: selectByClass --> " + selectByClass);
 
-		if (selectByMark.equalsIgnoreCase("-")) {
-			for (Car car : cars) {
-				if (car.getCarClass().equalsIgnoreCase(selectByClass)) {
-					selectCars.add(car);
-				}
+		selectCars = cars.stream()
+				.filter(c->c.getCarClass().equals(selectByClass))
+				.filter(car -> car.getMark().equals(selectByMark))
+				.collect(Collectors.toList());
+		/*for (Car car : cars) {
+			if (car.getCarClass().equalsIgnoreCase(selectByClass)&&car.getMark().equalsIgnoreCase(selectByMark)) {
+				selectCars.add(car);
 			}
-		} else if (selectByClass.equalsIgnoreCase("-")) {
-			for (Car car : cars) {
-				if (car.getMark().equalsIgnoreCase(selectByMark)) {
-					selectCars.add(car);
-				}
-			}
-		}
+		}*/
 
 		request.setAttribute("selectCars", selectCars);
 		LOG.trace("Set the request attribute: selectCars --> " + selectCars);

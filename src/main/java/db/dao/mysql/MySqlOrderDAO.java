@@ -42,8 +42,8 @@ public class MySqlOrderDAO implements OrderDAO {
             order.setUserId(rs.getInt(Fields.ORDER_USER_ID));
             order.setCarId(rs.getInt(Fields.ORDER_CAR_ID));
             order.setDriverStatus(rs.getBoolean(Fields.ORDER_DRIVER_STATUS));
-            order.setStartDate(rs.getDate(Fields.ORDER_DATA_ORDER));
-            order.setEndDate(rs.getDate(Fields.ORDER_DATA_RETURN));
+            order.setStartDate(rs.getDate(Fields.ORDER_DATE_START));
+            order.setEndDate(rs.getDate(Fields.ORDER_DATE_END));
             order.setPrice(rs.getInt(Fields.ORDER_PRICE));
             order.setStatusId(rs.getInt(Fields.ORDER_STATUS_ID));
             order.setRejectionReason(rs.getString(Fields.ORDER_REJECTION_REASON));

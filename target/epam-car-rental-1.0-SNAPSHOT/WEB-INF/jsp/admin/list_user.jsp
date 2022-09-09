@@ -37,7 +37,7 @@
 					<tr>
 						<td>${user.id}</td>
 						<td>${user.roleId}</td>
-						<td>${user.login}</td>
+						<td>${user.email}</td>
 						<td>${user.password}</td>
 						<td>${user.status}</td>
 					</tr>

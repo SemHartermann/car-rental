@@ -48,7 +48,7 @@
 						<td>${order.driverStatus}</td>
 						<td>${order.startDate}</td>
 						<td>${order.endDate}</td>
-						<td>${order.orderPrice}</td>
+						<td>${order.price}</td>
 						<td>${order.statusId}</td>
 						<td>${order.rejectionReason}</td>
 						<td>${order.damage}</td>

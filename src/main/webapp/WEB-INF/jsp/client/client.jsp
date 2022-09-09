@@ -26,7 +26,7 @@
 									<td><fmt:message key='client.lastName' /></td>
 									<td><fmt:message key='client.passportNumber' /></td>
 									<td><fmt:message key='client.phoneNumber' /></td>
-									<td><fmt:message key='client.email' /></td>
+										
 								</tr>
 							</thead>
 
@@ -37,7 +37,7 @@
 									<td>${user.lastName}</td>
 									<td>${user.passportNumber}</td>
 									<td>${user.phoneNumber}</td>
-									<td>${user.email}</td>
+
 								</tr>
 
 							</c:forEach>

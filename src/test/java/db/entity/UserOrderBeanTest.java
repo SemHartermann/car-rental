@@ -103,7 +103,7 @@ public class UserOrderBeanTest {
 	@Test
 	public void testGetOrderData() {
 		UserOrderBean userOrderBean = new UserOrderBean();
-		Date actual = userOrderBean.getOrderData();
+		Date actual = userOrderBean.getStartDate();
 		Date expected = null;
 		assertEquals(expected, actual);
 	}
@@ -116,7 +116,7 @@ public class UserOrderBeanTest {
 	@Test
 	public void testGetReturnData() {
 		UserOrderBean userOrderBean = new UserOrderBean();
-		Date actual = userOrderBean.getReturnData();
+		Date actual = userOrderBean.getEndDate();
 		Date expected = null;
 		assertEquals(expected, actual);
 	}

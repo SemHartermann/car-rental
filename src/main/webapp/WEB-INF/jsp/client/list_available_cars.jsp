@@ -24,12 +24,12 @@
 						<input type="submit" value="<fmt:message key='list_available_cars.sort'/>" />
 					</p>
 				</form>
-			<c:forEach var="car"
-					items="${availableCarsListById}">
+			<c:forEach var="car" items="${availableCarsListById}">
 
-					<myT:carstable driverPrice="${car.driverPrice}"
-						model="${car.model}" price="${car.price}"
-						carClass="${car.Carclass}" mark="${car.mark}" id="${car.id}"/>
+					<myT:carstable id="${car.id}"
+								   driverPrice="${car.driverPrice}"
+								   model="${car.model}" price="${car.price}"
+								   carClass="${car.Carclass}" mark="${car.mark}" />
 
 				</c:forEach> 
 				<%-- CONTENT --%>

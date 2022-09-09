@@ -17,8 +17,6 @@ import java.util.List;
 
 public class ListCarsCommand extends Command {
 
-	private static final long serialVersionUID = -2944053832470658789L;
-
 	private static final Logger LOG = Logger.getLogger(ListCarsCommand.class);
 
 	@Override
@@ -33,17 +31,9 @@ public class ListCarsCommand extends Command {
 		String sortCommand = request.getParameter("sort");
 
 		if (sortCommand.equalsIgnoreCase("price")) {
-			Collections.sort(cars, new Comparator<Car>() {
-				public int compare(Car c1, Car c2) {
-					return c1.getPrice() - c2.getPrice();
-				}
-			});
-		} else if (sortCommand.equalsIgnoreCase("name")) {
-			Collections.sort(cars, new Comparator<Car>() {
-				public int compare(Car c1, Car c2) {
-					return c1.getModel().compareTo(c2.getModel());
-				}
-			});
+			cars.sort(Comparator.comparingInt(Car::getPrice));
+		} else if (sortCommand.equalsIgnoreCase("model")) {
+			cars.sort(Comparator.comparing(Car::getModel));
 		}
 
 		request.setAttribute("carsList", cars);
