@@ -9,5 +9,5 @@ JSTL functions tag library.
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<%@ taglib prefix="t" uri="/WEB-INF/custom.tld"%>
+<%@ taglib prefix="t" uri="/WEB-INF/customTags.tld"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="myT" %>

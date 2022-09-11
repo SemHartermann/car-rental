@@ -7,15 +7,18 @@ import db.exceptions.DBException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) throws DBException {
 
 
-        int userId = 2;
+        List<UserInfo> userInfoList = new ArrayList<>();
 
-        System.out.println(DaoFactory.getCarDaoInstance().findCarById(1).getModel());
+        userInfoList.clear();
+
+        System.out.println(userInfoList.size());
 
 
     }

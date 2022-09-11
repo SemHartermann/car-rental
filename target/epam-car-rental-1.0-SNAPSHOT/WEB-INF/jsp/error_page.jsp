@@ -12,14 +12,11 @@
 
 	<table id="main-container">
 
-		<%-- HEADER --%>
 		<%@ include file="/WEB-INF/jspf/header.jspf"%>
-		<%-- HEADER --%>
 
 		<tr >
 			<td class="content center">
-			<%-- CONTENT --%>
-				
+
 				<h2 class="error">
 					The following error occurred
 				</h2>
@@ -40,13 +37,13 @@
 				<c:if test="${not empty exception}">
 					<% exception.printStackTrace(new PrintWriter(out)); %>
 				</c:if>
-				
+
 				<%-- if we get this page using forward --%>
 				<c:if test="${not empty requestScope.errorMessage}">
 					<h3>${requestScope.errorMessage}</h3>
 				</c:if>
 
-			<%-- CONTENT --%>
+
 			</td>
 		</tr>
 

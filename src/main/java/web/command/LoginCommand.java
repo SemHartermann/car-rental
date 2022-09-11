@@ -19,8 +19,6 @@ import java.text.SimpleDateFormat;
 
 public class LoginCommand extends Command {
 
-	private static final long serialVersionUID = -1071012092354190852L;
-
 	private static final Logger LOG = Logger.getLogger(LoginCommand.class);
 
 	private SimpleDateFormat sdf = new SimpleDateFormat(DateUtil.DATE_FORMAT);
@@ -33,7 +31,7 @@ public class LoginCommand extends Command {
 		HttpSession session = request.getSession();
 
 		User user = null;
-		// get login and password form request
+
 		String login = request.getParameter("email");
 		LOG.trace("Request parameter: email --> " + login);
 		String password = request.getParameter("password");
@@ -63,7 +61,6 @@ public class LoginCommand extends Command {
 			return forward;
 		}
 
-		// if user is blocked
 		if (user.isStatus()) {
 			String errorMessasge = "You was blocked!";
 			session.setAttribute("errorMessage", errorMessasge);
@@ -80,14 +77,17 @@ public class LoginCommand extends Command {
 
 		if (userRole == Role.ADMIN) {
 			forward = Path.PAGE_ADMIN;
+			LOG.trace("forward --> " + forward);
 		}
 
 		if (userRole == Role.MANAGER) {
 			forward = Path.PAGE_MANAGER;
+			LOG.trace("forward --> " + forward);
 		}
 
 		if (userRole == Role.CLIENT) {
 			forward = Path.PAGE_CLIENT;
+			LOG.trace("forward --> " + forward);
 		}
 
 		Date setCurrentDate = DateUtil.getCurrentDate();
@@ -106,8 +106,7 @@ public class LoginCommand extends Command {
 		session.setAttribute("userId", user.getId());
 		LOG.trace("Set the session attribute: userId --> " + user.getId());
 
-		LOG.info("User " + user + " logged as "
-				+ userRole.toString().toLowerCase());
+		LOG.info(user + " logged as " + userRole.toString().toLowerCase());
 
 		LOG.debug("LoginCommand finished");
 		return forward;

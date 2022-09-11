@@ -1,21 +1,14 @@
 package db.entities;
 
+import java.io.Serializable;
+
 public class Car extends Entity {
-
-
-
     private String model;
-
     private String mark;
-
     private String carClass;
-
     private int price;
-
     private String licensePlate;
-
     private int driverPrice;
-
     private boolean transmission;
     private boolean available;
 
@@ -57,9 +50,6 @@ public class Car extends Entity {
         return available;
     }
 
-    /**
-     * @param available the available to set
-     */
     public void setAvailable(boolean available) {
         this.available = available;
     }

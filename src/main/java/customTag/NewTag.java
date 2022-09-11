@@ -1,4 +1,4 @@
-package custom_tag;
+package customTag;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
