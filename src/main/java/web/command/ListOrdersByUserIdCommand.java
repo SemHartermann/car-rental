@@ -49,14 +49,6 @@ public class ListOrdersByUserIdCommand extends Command {
 		return Path.PAGE_LIST_ORDERS_BY_USER_ID;
 	}
 
-	/**
-	 * Serializable comparator used with TreeMap container. When the servlet
-	 * container tries to serialize the session it may fail because the session
-	 * can contain TreeMap object with not serializable comparator.
-	 * 
-	 * @author A.Yegorov
-	 *
-	 */
 	private static class CompareById implements Comparator<UserOrderBean>,
 			Serializable {
 

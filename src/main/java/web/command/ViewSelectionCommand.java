@@ -17,7 +17,6 @@ import java.util.Set;
 
 public class ViewSelectionCommand extends Command {
 
-	private static final long serialVersionUID = 5436792136235525560L;
 
 	private static final Logger LOG = Logger
 			.getLogger(ViewSelectionCommand.class);
@@ -30,7 +29,7 @@ public class ViewSelectionCommand extends Command {
 		List<Car> cars = DaoFactory.getCarDaoInstance().findAvailableCars();
 		LOG.trace("Found in DB: cars --> " + cars);
 
-		Set<String> selectCarsClass = new HashSet<String>();
+		Set<String> selectCarsClass = new HashSet<>();
 		for (Car car : cars) {
 			selectCarsClass.add(car.getCarClass());
 		}
@@ -39,7 +38,7 @@ public class ViewSelectionCommand extends Command {
 		LOG.trace("Set the request attribute: selectCarsClass --> "
 				+ selectCarsClass);
 
-		Set<String> selectCarsMark = new HashSet<String>();
+		Set<String> selectCarsMark = new HashSet<>();
 		for (Car car : cars) {
 			selectCarsMark.add(car.getMark());
 		}

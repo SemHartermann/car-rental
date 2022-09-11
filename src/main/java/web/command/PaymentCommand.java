@@ -16,8 +16,6 @@ import java.io.IOException;
 
 public class PaymentCommand extends Command {
 
-	private static final long serialVersionUID = 1460935973291429009L;
-
 	private static final Logger LOG = Logger.getLogger(PaymentCommand.class);
 
 	public String execute(HttpServletRequest request,

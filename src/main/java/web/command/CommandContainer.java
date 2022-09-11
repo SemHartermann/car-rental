@@ -9,7 +9,7 @@ public class CommandContainer {
 
 	private static final Logger LOG = Logger.getLogger(CommandContainer.class);
 
-	private static Map<String, Command> commands = new TreeMap<String, Command>();
+	private static Map<String, Command> commands = new TreeMap<>();
 
 	static {
 		// common commands
@@ -19,8 +19,6 @@ public class CommandContainer {
 		commands.put("changeLocale", new ChangeLocaleCommand());
 		commands.put("viewLocale", new ViewLocaleCommand());
 		
-		
-		
 
 		// client commands
 		commands.put("registerClient", new RegisterCommand());
@@ -29,6 +27,7 @@ public class CommandContainer {
 		commands.put("client", new ClientCommand());
 		commands.put("addOrder", new AddOrderCommand());
 		commands.put("payment", new PaymentCommand());
+		commands.put("paymentFromOrders", new PaymentFromOrdersCommand());
 		commands.put("viewAvailableCars", new ViewAvailableCarsCommand());
 		commands.put("availableCarsList", new ListAvailableCarsCommand());
 		commands.put("updateUserInfo", new UpdateUserInfoCommand());
@@ -69,13 +68,6 @@ public class CommandContainer {
 		LOG.trace("Number of commands --> " + commands.size());
 	}
 
-	/**
-	 * Returns command object with the given name.
-	 * 
-	 * @param commandName
-	 *            Name of the command.
-	 * @return Command object.
-	 */
 	public static Command get(String commandName) {
 		if (commandName == null || !commands.containsKey(commandName)) {
 			LOG.trace("Command not found, name --> " + commandName);

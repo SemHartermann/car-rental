@@ -10,12 +10,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * Context listener.
- * 
- * @author A.Yegorov
- * 
- */
 public class ContextListener implements ServletContextListener {
 
 	private static final Logger LOG = Logger.getLogger(ContextListener.class);
@@ -42,11 +36,6 @@ public class ContextListener implements ServletContextListener {
 		log("Servlet context initialization finished");
 	}
 
-	/**
-	 * Initializes log4j framework.
-	 * 
-	 * @param servletContext
-	 */
 	private void initLog4J(ServletContext servletContext) {
 		log("Log4J initialization started");
 		try {
@@ -60,12 +49,6 @@ public class ContextListener implements ServletContextListener {
 		log("Log4J initialization finished");
 	}
 
-	/**
-	 * Initializes i18n framework.
-	 * 
-	 * @param servletContext
-	 * @throws IOException
-	 */
 	private void initI18n(ServletContext context) throws IOException {
 		String localesFileName = context.getInitParameter("locales");
 
@@ -92,15 +75,8 @@ public class ContextListener implements ServletContextListener {
 		locales.list(System.out);
 	}
 
-	/**
-	 * Initializes CommandContainer.
-	 * 
-	 * @param servletContext
-	 */
 	private void initCommandContainer() {
 
-		// initialize commands container
-		// just load class to JVM
 		try {
 			Class.forName("web.command.CommandContainer");
 		} catch (ClassNotFoundException ex) {

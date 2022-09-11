@@ -5,12 +5,6 @@ import org.apache.log4j.Logger;
 import javax.servlet.*;
 import java.io.IOException;
 
-/**
- * Encoding filter.
- * 
- * @author A.Yegorov
- * 
- */
 public class EncodingFilter implements Filter {
 
 	private static final Logger LOG = Logger.getLogger(EncodingFilter.class);

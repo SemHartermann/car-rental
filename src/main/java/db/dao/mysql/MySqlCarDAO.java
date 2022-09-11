@@ -30,13 +30,6 @@ public class MySqlCarDAO implements CarDAO {
             +"where c.id=o.car_id and (o.status_id=2 or o.status_id=4 or o.status_id=1);";
 
 
-    /**
-     * Returns all cars.
-     *
-     * @return List of car entities.
-     * @throws DBException
-     */
-
     public boolean deleteCarById(int id) throws DBException {
         try (Connection con = DBManager.getInstance().getConnection();
              PreparedStatement pstmt = con.prepareStatement(SQL_DELETE_CAR_BY_ID)) {
@@ -133,14 +126,9 @@ public class MySqlCarDAO implements CarDAO {
         return car;
     }
 
-    /**
-     * Returns cars in rent.
-     *
-     * @return List of car entities.
-     * @throws DBException
-     */
+
     public List<Car> findCarsInRent() {
-        List<Car> carList = new ArrayList<Car>();
+        List<Car> carList = new ArrayList<>();
 
         try (Connection con = DBManager.getInstance().getConnection();
              Statement stmt = con.createStatement();
@@ -150,8 +138,8 @@ public class MySqlCarDAO implements CarDAO {
             }
             /*con.commit();*/
         } catch (SQLException ex) {
-            /*rollback(con);
-            LOG.error(Messages.ERR_CANNOT_OBTAIN_CARS, ex);*/
+//            rollback(con);
+            LOG.error(Messages.ERR_CANNOT_OBTAIN_CARS, ex);
             ex.printStackTrace();
         } finally {
 

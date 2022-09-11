@@ -54,6 +54,15 @@
 						<td>${bean.rejectionReason}</td>
 						<td>${bean.damage}</td>
 						<td>${bean.priceForRepairs}</td>
+						<c:set var = "opened" scope = "session" value = "opened"/>
+						<c:if test="${bean.statusName == opened}">
+						<form id="Payment_from_orders_form" action="controller" method="post">
+							<input type="hidden" name="command" value="paymentFromOrders"/>
+							<input type="hidden" name="price" value="${bean.orderPrice}"/>
+							<input type="hidden" name="orderId" value="${bean.id}"/>
+							<td><input type="submit" value="<fmt:message key='list_orders_by_user_id.payment'/>"></td>
+						</form>
+						</c:if>
 					</tr>
 
 				</c:forEach>			

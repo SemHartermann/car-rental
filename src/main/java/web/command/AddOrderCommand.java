@@ -84,11 +84,11 @@ public class AddOrderCommand extends Command {
 		LOG.trace("Request parameter: driverStatus --> "
 				+ order.isDriverStatus());
 
-		String startDataS = request.getParameter("startDate");
-		String endDataS = request.getParameter("endDate");
+		String startDateS = request.getParameter("startDate");
+		String endDateS = request.getParameter("endDate");
 
-		if (startDataS == null || startDataS.isEmpty() || endDataS == null
-				|| endDataS.isEmpty()) {
+		if (startDateS == null || startDateS.isEmpty() || endDateS == null
+				|| endDateS.isEmpty()) {
 			String errorMessasge = "Date cannot be empty";
 			session.setAttribute("errorMessage", errorMessasge);
 			LOG.error("Set the session attribute: errorMessage --> "
@@ -97,25 +97,23 @@ public class AddOrderCommand extends Command {
 			return web.Path.PAGE_ERROR_PAGE;
 		}
 
-		Date orderData = Date.valueOf(startDataS);
-		order.setStartDate(orderData);
-		LOG.trace("Request parameter: orderData --> " + order.getStartDate());
+		Date startDate = Date.valueOf(startDateS);
+		order.setStartDate(startDate);
+		LOG.trace("Request parameter: startDate --> " + order.getStartDate());
 
-		Date returnData = Date.valueOf(endDataS);
-		order.setEndDate(returnData);
-		LOG.trace("Request parameter: returnData --> " + order.getEndDate());
+		Date endDate = Date.valueOf(endDateS);
+		order.setEndDate(endDate);
+		LOG.trace("Request parameter: endDate --> " + order.getEndDate());
+
+		order.setStatusId(0);
+		LOG.trace("Request parameter: statusId --> " + order.getStatusId());
 
 		DaoFactory.getOrderDaoInstance().addOrder(order);
 		LOG.trace("Create new order --> " + order);
 
 		List<Order> orders = DaoFactory.getOrderDaoInstance().findOrdersByUserId(userId);
 
-		Collections.sort(orders, new Comparator<Order>() {
-			@Override
-			public int compare(Order o1, Order o2) {
-				return o2.getId() - o1.getId();
-			}
-		});
+		Collections.sort(orders, (o1, o2) -> o2.getId() - o1.getId());
 
 		Order getOrder = orders.get(0);
 		int orderId = getOrder.getId();

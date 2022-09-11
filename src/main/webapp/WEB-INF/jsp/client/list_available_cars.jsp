@@ -24,30 +24,74 @@
 						<input type="submit" value="<fmt:message key='list_available_cars.sort'/>" />
 					</p>
 				</form>
-			<c:forEach var="car" items="${availableCarsListById}">
 
-					<myT:carstable id="${car.id}"
-								   driverPrice="${car.driverPrice}"
-								   model="${car.model}" price="${car.price}"
-								   carClass="${car.Carclass}" mark="${car.mark}" />
 
-				</c:forEach> 
-				<%-- CONTENT --%>
-				 <%--	Cars sorting form  --%>
-				 <c:if test="${fn:length(param.sort) > 0}">
-					<c:forEach var="car" items="${availableCarsList}">
+				<table>
 
-						<myT:carstable driverPrice="${car.driverPrice}"
-							model="${car.model}" price="${car.price}"
-							carClass="${car.carClass}" mark="${car.mark}" id="${car.id}"/>
+					<tr>
+						<td width="100px" align="center"><fmt:message key='carstable.img'/></td>
+						<td width="100px" align="center"><fmt:message key='carstable.number'/></td>
+						<td width="100px" align="center"><fmt:message key='carstable.model'/></td>
+						<td width="100px" align="center"><fmt:message key='carstable.mark'/></td>
+						<td width="100px" align="center"><fmt:message key='carstable.class'/></td>
+						<td width="100px" align="center"><fmt:message key='carstable.price'/></td>
+						<td width="100px" align="center"><fmt:message key='carstable.driverPrice'/></td>
 
+					</tr>
+					<c:if test="${fn:length(param.sort) > 0}">
+						<c:forEach var="car" items="${availableCarsList}">
+
+							<tr>
+								<td><img style="background: url('images/cars/id/${car.id}.jpg'); width:330px; height:200px;
+										border: 0px; border-radius:20px; -webkit-border-radius:20px; -moz-border-radius:20px;"></td>
+								<td width="100px" align="center">${car.id}</td>
+								<td width="100px" align="center">${car.model}</td>
+								<td width="100px" align="center">${car.mark}</td>
+								<td width="100px" align="center">${car.carClass}</td>
+								<td width="100px" align="center">${car.price}</td>
+								<td width="100px" align="center">${car.driverPrice}</td>
+							</tr>
+
+						</c:forEach>
+					</c:if>
+					<c:forEach var="car" items="${availableCarsListById}">
+					<tr>
+						<td><img style="background: url('images/cars/id/${car.id}.jpg'); width:330px; height:200px;
+								border: 0px; border-radius:20px; -webkit-border-radius:20px; -moz-border-radius:20px;"></td>
+						<td width="100px" align="center">${car.id}</td>
+						<td width="100px" align="center">${car.model}</td>
+						<td width="100px" align="center">${car.mark}</td>
+						<td width="100px" align="center">${car.carClass}</td>
+						<td width="100px" align="center">${car.price}</td>
+						<td width="100px" align="center">${car.driverPrice}</td>
+					</tr>
 					</c:forEach>
-				</c:if> 
+
+				</table>
+
 	<%@ include file="/WEB-INF/jspf/footer.jspf"%>
 	</table>
 
 	<%-- END BODY CLASS--%>
+	<%--<c:forEach var="car" items="${availableCarsListById}">
 
+                        <myT:carstable id="${car.id}"
+                                       driverPrice="${car.driverPrice}"
+                                       model="${car.model}" price="${car.price}"
+                                       carClass="${car.Carclass}" mark="${car.mark}" />
+
+                    </c:forEach>
+                    &lt;%&ndash; CONTENT &ndash;%&gt;
+                     &lt;%&ndash;	Cars sorting form  &ndash;%&gt;
+                     <c:if test="${fn:length(param.sort) > 0}">
+                        <c:forEach var="car" items="${availableCarsList}">
+
+                            <myT:carstable driverPrice="${car.driverPrice}"
+                                model="${car.model}" price="${car.price}"
+                                carClass="${car.carClass}" mark="${car.mark}" id="${car.id}"/>
+
+                        </c:forEach>
+                    </c:if>--%>
 	
 	<%--footer end --%>
 </body>

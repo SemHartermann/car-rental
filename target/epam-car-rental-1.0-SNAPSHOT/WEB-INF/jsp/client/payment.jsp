@@ -29,7 +29,7 @@ Defines the web form.
 
 									<p><fmt:message key='payment.name'/></p>
 				<myT:orderprice price="${price}"></myT:orderprice>
-		<form id="login_form" action="controller" method="post">
+				<form id="login_form" action="controller" method="post">
 					<input type="hidden" name="command" value="payment" /> 
 					<input type="hidden" name="result" value="success" />  
 					<input type="submit" value="<fmt:message key='payment.pay'/>">

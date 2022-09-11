@@ -17,8 +17,6 @@ import java.util.List;
 
 public class ClientCommand extends Command {
 
-	private static final long serialVersionUID = -7187214861283892786L;
-
 	private static final Logger LOG = Logger.getLogger(ClientCommand.class);
 
 	@Override

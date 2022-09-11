@@ -17,8 +17,6 @@ import java.util.List;
 
 public class GetOrdersListCommand extends Command {
 
-	private static final long serialVersionUID = -8011052320323983859L;
-
 	private static final Logger LOG = Logger
 			.getLogger(GetOrdersListCommand.class);
 
@@ -33,11 +31,7 @@ public class GetOrdersListCommand extends Command {
 		LOG.trace("Found in DB: orderList --> " + orderList);
 
 		// sort orders by id
-		Collections.sort(orderList, new Comparator<Order>() {
-			public int compare(Order o1, Order o2) {
-				return (int) (o1.getId() - o2.getId());
-			}
-		});
+		Collections.sort(orderList, (o1, o2) -> (int) (o1.getId() - o2.getId()));
 
 		// put order items list to the request
 		request.setAttribute("orderList", orderList);

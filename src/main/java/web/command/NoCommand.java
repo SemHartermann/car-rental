@@ -12,8 +12,6 @@ import java.io.IOException;
 
 public class NoCommand extends Command {
 
-	private static final long serialVersionUID = 998813771460389541L;
-
 	private static final Logger LOG = Logger.getLogger(NoCommand.class);
 
 	@Override

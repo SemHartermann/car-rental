@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class ViewAddManagerCommand extends Command {
 
-	private static final long serialVersionUID = 8634451502222349682L;
 
 	private static final Logger LOG = Logger
 			.getLogger(ViewAddManagerCommand.class);

@@ -27,7 +27,7 @@ public class MySqlOrderDAO implements OrderDAO {
     private static final String SQL_FIND_ORDERS_BY_ID = "SELECT * FROM `order` WHERE id=?";
 
     private static final String SQL_CREATE_NEW_ORDER = "INSERT INTO `order` (user_id, car_id, driver_status, "
-            + "start_date, end_date, price) VALUES (?, ?, ?, ?, ?, ?)";
+            + "start_date, end_date, price, status_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_UPDATE_ORDER_STATUS = "UPDATE `order` SET status_id=? WHERE id=?";
 
@@ -142,6 +142,7 @@ public class MySqlOrderDAO implements OrderDAO {
                     days);
 
             pstmt.setInt(6, price);
+            pstmt.setInt(7, order.getStatusId()+1);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             /*rollback(con);*/
@@ -200,7 +201,7 @@ public class MySqlOrderDAO implements OrderDAO {
 
     public void updateOrderStatus(Connection con, Order order){
         try (PreparedStatement pstmt = con.prepareStatement(SQL_UPDATE_ORDER_STATUS)){
-            pstmt.setInt(1, order.getStatusId());
+            pstmt.setInt(1, order.getStatusId()+1);
             pstmt.setInt(2, order.getId());
             pstmt.executeUpdate();
         } catch (SQLException e) {
