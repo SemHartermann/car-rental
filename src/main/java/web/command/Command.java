@@ -10,9 +10,6 @@ import java.io.Serializable;
 
 
 public abstract class Command implements Serializable{
-	
-	private static final long serialVersionUID = -4092484511343869925L;
-
 
 	public abstract String execute(HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException,

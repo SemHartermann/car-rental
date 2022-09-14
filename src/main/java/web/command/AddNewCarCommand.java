@@ -43,12 +43,12 @@ public class AddNewCarCommand extends Command {
 		LOG.trace("Request parametr: car_class --> " + car.getCarClass());
 
 		String car_price_s = request.getParameter("carPrice");
-		int car_price = Integer.valueOf(car_price_s);
+		int car_price = Integer.parseInt(car_price_s);
 		car.setPrice(car_price);
 		LOG.trace("Request parametr: car_price --> " + car.getPrice());
 
-		String car_driver_price_s = request.getParameter("carDriverPrice");
-		int car_driver_price = Integer.valueOf(car_driver_price_s);
+		String car_driver_price_s = request.getParameter("driverPrice");
+		int car_driver_price = Integer.parseInt(car_driver_price_s);
 		car.setDriverPrice(car_driver_price);
 		LOG.trace("Request parametr: car_driver_price --> "
 				+ car.getDriverPrice());

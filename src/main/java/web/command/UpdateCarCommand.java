@@ -15,8 +15,6 @@ import java.io.IOException;
 
 public class UpdateCarCommand extends Command {
 
-	private static final long serialVersionUID = -237904424337914430L;
-
 	private static final Logger LOG = Logger.getLogger(UpdateCarCommand.class);
 
 	@Override
@@ -27,7 +25,7 @@ public class UpdateCarCommand extends Command {
 
 		HttpSession session = request.getSession();
 
-		int carId = Integer.valueOf(request.getParameter("id"));
+		int carId = Integer.parseInt(request.getParameter("id"));
 		LOG.trace("Request parameter: carId --> " + carId);
 
 		Car car = DaoFactory.getCarDaoInstance().findCarById(carId);
@@ -42,8 +40,8 @@ public class UpdateCarCommand extends Command {
 			return Path.PAGE_ERROR_PAGE;
 		}
 
-		String carPriceS = request.getParameter("carPrice");
-		String carDriverPriceS = request.getParameter("carDriverPrice");
+		String carPriceS = request.getParameter("price");
+		String carDriverPriceS = request.getParameter("driverPrice");
 
 		if (carPriceS == null || carPriceS.isEmpty() || carDriverPriceS == null
 				|| carDriverPriceS.isEmpty()) {
@@ -55,11 +53,11 @@ public class UpdateCarCommand extends Command {
 			return Path.PAGE_ERROR_PAGE;
 		}
 
-		int carPrice = Integer.valueOf(carPriceS);
+		int carPrice = Integer.parseInt(carPriceS);
 		car.setPrice(carPrice);
 		LOG.trace("Request parameter: carPrice --> " + car.getPrice());
 
-		int carDriverPrice = Integer.valueOf(carDriverPriceS);
+		int carDriverPrice = Integer.parseInt(carDriverPriceS);
 		car.setDriverPrice(carDriverPrice);
 		LOG.trace("Request parameter: carDriverPrice --> "
 				+ car.getDriverPrice());

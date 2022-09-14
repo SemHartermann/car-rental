@@ -8,15 +8,14 @@
 	
 <body>
 
-	<table id="main-container">
+	<div class="content">
 
 		<%-- HEADER --%>
 		<%@ include file="/WEB-INF/jspf/header.jspf"%>
 		<%-- HEADER --%>
 
 
-		<tr >
-			<td class="content center">
+		<div class="align-items-center" >
 			<%-- CONTENT --%>
 
 				
@@ -46,11 +45,10 @@
 				
 			<%-- CONTENT --%>
 
-			</td>
-		</tr>
+		</div>
 
 		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
 		
-	</table>
+	</div>
 </body>
 </html>

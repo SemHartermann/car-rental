@@ -15,8 +15,6 @@ import java.io.IOException;
 
 public class ReturnCarCommand extends Command {
 
-	private static final long serialVersionUID = -5830610361996655024L;
-
 	private static final Logger LOG = Logger.getLogger(ReturnCarCommand.class);
 
 	@Override
@@ -38,7 +36,7 @@ public class ReturnCarCommand extends Command {
 			return Path.PAGE_ERROR_PAGE;
 		}
 
-		int orderId = Integer.valueOf(orderIdS);
+		int orderId = Integer.parseInt(orderIdS);
 		LOG.trace("Request parameter: orderId --> " + orderId);
 
 		Order order = DaoFactory.getOrderDaoInstance().findOrderById(orderId);
@@ -56,7 +54,7 @@ public class ReturnCarCommand extends Command {
 		int statusReject = Status.CLOSED.ordinal();
 		order.setStatusId(statusReject);
 
-		/*String status = request.getParameter("damage");
+		String status = request.getParameter("damage");
 		boolean damage = true;
 		if (status == null) {
 			damage = false;
@@ -79,7 +77,7 @@ public class ReturnCarCommand extends Command {
 				LOG.trace("Request parameter: priceForRepairs --> "
 						+ order.getPriceForRepairs());
 			}
-		}*/
+		}
 
 		DaoFactory.getOrderDaoInstance().updateOrderReturn(order);
 		LOG.trace("Update order status --> " + order);

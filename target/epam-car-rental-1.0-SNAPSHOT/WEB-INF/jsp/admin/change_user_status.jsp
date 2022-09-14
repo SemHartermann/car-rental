@@ -8,16 +8,11 @@
 	
 <body>
 
-	<table id="main-container">
+	<div class="content">
 
-		<%-- HEADER --%>
 		<%@ include file="/WEB-INF/jspf/header.jspf"%>
-		<%-- HEADER --%>
 
-
-		<tr >
-			<td class="content center">
-			<%-- CONTENT --%>
+		<div class="align-items-center">
 
 				
 				<form id="login_form" action="controller" method="post">
@@ -38,14 +33,11 @@
 					<input type="submit" value="<fmt:message key='change_user_status.button'/>">								
 				</form> 
 				
-				
-			<%-- CONTENT --%>
 
-			</td>
-		</tr>
+		</div>
 
 		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
 		
-	</table>
+	</div>
 </body>
 </html>

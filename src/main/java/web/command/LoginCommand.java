@@ -62,10 +62,10 @@ public class LoginCommand extends Command {
 		}
 
 		if (user.isStatus()) {
-			String errorMessasge = "You was blocked!";
-			session.setAttribute("errorMessage", errorMessasge);
+			String errorMessage = "You was blocked!";
+			session.setAttribute("errorMessage", errorMessage);
 			LOG.error("Set the session attribute: errorMessage --> "
-					+ errorMessasge);
+					+ errorMessage);
 			forward = Path.PAGE_ERROR_PAGE;
 			LOG.debug("LoginCommand finished");
 			return forward;

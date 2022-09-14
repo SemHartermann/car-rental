@@ -1,9 +1,11 @@
 /***************************************************************
 CSS for all JSP pages
 ***************************************************************/
+
 body {
+	font: 1rem/1.5 var(--bs-font-sans-serif);
 	margin: 0;
-	background-image: url("../images/backgL.jpg");
+
 }
 
 table {
@@ -54,20 +56,32 @@ Style for the right located head menu (DIV tag at right)
 #rightHeader {
 	float: right;
 	text-align: right;
-	margin-right: 10px;
-	padding: 2px;
+	/*margin-right: 2px;*/
+	/*padding: 2px;*/
 }
 
 /***************************************************************
 Content styles (TD tag in the main middle row)
 ***************************************************************/
+.b-example-divider {
+	height: 3rem;
+	background-color: rgba(0, 0, 0, .1);
+	border: solid rgba(0, 0, 0, .15);
+	border-width: 1px 0;
+	box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
 .content {
-	height: 100%;
-	padding-left: 10px;
-	padding-right: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100%;
+	/*padding-left: 10px;
+	padding-right: 10px;*/
 	padding-top: 10px;
-	text-align: left;
-	vertical-align: top;
+	text-align: center;
+	vertical-align: center;
+	/*border-width:4px;
+	border-color:gray;*/
 }
 
 .contentT {
@@ -151,17 +165,27 @@ List order table (list_order.jsp)
 	text-align: center;
 }
 
-
+/*body {
+	margin: 0;
+	font-family: var(--bs-body-font-family);
+	font-size: var(--bs-body-font-size);
+	font-weight: var(--bs-body-font-weight);
+	line-height: var(--bs-body-line-height);
+	color: var(--bs-body-color);
+	text-align: var(--bs-body-text-align);
+	background-color: var(--bs-body-bg);
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
 .body div#table_region {
 	position: absolute;
 	min-width: 1000px;
 	top: 250px;
 	left: calc(5%);
 	right: calc(5%);
-	align: center;
 	border-radius: 10px;
 	background: rgba(0, 0, 0, 0.3);
-}
+}*/
 
 
 /********.myInput {
@@ -173,5 +197,6 @@ List order table (list_order.jsp)
 #admin_hello {
 	text-align: center;
 	vertical-align: middle;
-	font: 20pt;
+
 }
+

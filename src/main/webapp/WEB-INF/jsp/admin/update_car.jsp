@@ -8,15 +8,14 @@
 	
 <body>
 
-	<table id="main-container">
+	<div class="content">
 
 		<%-- HEADER --%>
 		<%@ include file="/WEB-INF/jspf/header.jspf"%>
 		<%-- HEADER --%>
 
 
-		<tr >
-			<td class="content center">
+		<div class="align-items-center">
 			<%-- CONTENT --%>
 
 				
@@ -44,15 +43,11 @@
 					
 					<input type="submit" value="<fmt:message key='update_car.button'/>">								
 				</form> 
-				
-				
-			<%-- CONTENT --%>
 
-			</td>
-		</tr>
+		</div>
 
 		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
 		
-	</table>
+	</div>
 </body>
 </html>

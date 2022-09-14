@@ -7,50 +7,37 @@
 <%@ include file="/WEB-INF/jspf/head.jspf" %>
 	
 <body>
-<table id="main-container">
 
-<%--=========================================================================== 
-This is the CONTENT, containing the main part of the page.
-===========================================================================--%> 
-		<tr >
-			<td class="content center">
-			<%-- CONTENT --%>
-			
-<%--=========================================================================== 
-Defines the web form.
-===========================================================================--%> 
-				<form id="Login_form" action="controller" method="post">
+<div class="content">
+	<div class="m-5">
+		<form id="register_form" action="controller" method="post">
+			<input type="hidden" name="command" value="registerClient"/>
 
-<%--=========================================================================== 
-Hidden field. In the query it will act as command=login.
-The purpose of this to define the command name, which have to be executed 
-after you submit current form. 
-===========================================================================--%> 
-					<input type="hidden" name="command" value="registerClient"/>
+			<div class="row-cols-4">
+				<label for="email" class="col-form-label-lg"><fmt:message key='register.email'/></label>
+			</div>
+			<div class="row-cols-4">
+				<input type="email" class="form-control-lg" id="email"
+					   name="email" required pattern=".{3,20}" maxlength="20"
+					   title="enter your email" placeholder="enter your email">
+			</div>
+			<div class="row-cols-4">
+				<label for="password" class="col-form-label-lg"><fmt:message key='register.password'/></label>
+			</div>
+			<div class="row-cols-4">
+				<input type="password" class="form-control-lg"
+					   required pattern=".{3,20}" maxlength="20" name="password"
+					   title="enter your password" id="password" placeholder="enter your password">
+				<br>
+			</div>
+			<div class="row-cols-4">
+				<p></p>
+				<input class="btn btn-dark " id="submit" type="submit" value="Registration">
+			</div>
+		</form>
+	</div>
+	<%@ include file="/WEB-INF/jspf/footer.jspf" %>
+</div>
 
-					<fieldset >
-						<legend><fmt:message key='register.email'/></legend>
-						<input type="email" name="email" required pattern=".{3,20}"  maxlength="20"
-						title="from 3 to 20 symbols (Latin alphabet, numbers)"/><br/>
-					</fieldset><br/>
-					<fieldset>
-						<legend><fmt:message key='register.password'/></legend>
-						<input type="password" name="password" required pattern=".{3,20}" maxlength="20" 
-						title="from 3 to 20 symbols"/>
-					</fieldset><br/>
-					
-					<input type="submit" value="Registration">		
-											
-				</form>
-				
-				
-			<%-- CONTENT --%>
-
-			</td>
-		</tr>
-
-		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
-		
-	</table>
 </body>
 </html>

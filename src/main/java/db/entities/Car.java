@@ -7,10 +7,7 @@ public class Car extends Entity {
     private String mark;
     private String carClass;
     private int price;
-    private String licensePlate;
     private int driverPrice;
-    private boolean transmission;
-    private boolean available;
 
     public int getPrice() {
         return price;
@@ -20,38 +17,12 @@ public class Car extends Entity {
         return driverPrice;
     }
 
-    public boolean isTransmission() {
-        return transmission;
-    }
-
-    public int getYearOfMake() {
-        return yearOfMake;
-    }
-
     public void setPrice(int price) {
         this.price = price;
     }
 
     public void setDriverPrice(int driverPrice) {
         this.driverPrice = driverPrice;
-    }
-
-    public void setTransmission(boolean transmission) {
-        this.transmission = transmission;
-    }
-
-    public void setYearOfMake(int yearOfMake) {
-        this.yearOfMake = yearOfMake;
-    }
-
-    private int yearOfMake;
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
     }
 
     public String getModel() {
@@ -100,11 +71,4 @@ public class Car extends Entity {
                 + driverPrice + "]";
     }
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
-    }
-
-    public String getLicensePlate() {
-        return licensePlate;
-    }
 }

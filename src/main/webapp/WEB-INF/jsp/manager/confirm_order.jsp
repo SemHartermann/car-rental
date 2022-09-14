@@ -3,45 +3,44 @@
 
 <html>
 
-<c:set var="title" value="ConfirmOrder" />
+<c:set var="title" value="ConfirmOrder"/>
 <%@ include file="/WEB-INF/jspf/head.jspf" %>
-	
+
 <body>
 
-	<table id="main-container">
+<div class="content">
 
-		<%-- HEADER --%>
-		<%@ include file="/WEB-INF/jspf/header.jspf"%>
-		<%-- HEADER --%>
-
-
-		<tr >
-			<td class="content center">
-			<%-- CONTENT --%>
-
-				
-				<form id="login_form" action="controller" method="post">
+    <%-- HEADER --%>
+    <%@ include file="/WEB-INF/jspf/header.jspf" %>
+    <%-- HEADER --%>
 
 
-					<input type="hidden" name="command" value="confirmOrder"/>
+    <div class="align-items-center">
+        <%-- CONTENT --%>
 
-					<fieldset >
-						<legend><fmt:message key='confirm_order.id'/></legend>
-						<input type="text" name="id" required pattern="\d{1,10}" min="0"  max="2147483647" 
-				title="Only numbers, max=2147483647"/><br/>
-					</fieldset><br/>
-					
-					<input type="submit" value="<fmt:message key='confirm_order.button'/>">								
-				</form> 
-				
-				
-			<%-- CONTENT --%>
 
-			</td>
-		</tr>
+        <form id="login_form" action="controller" method="post">
 
-		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
-		
-	</table>
+
+            <input type="hidden" name="command" value="confirmOrder"/>
+
+            <fieldset>
+                <legend><fmt:message key='confirm_order.id'/></legend>
+                <input type="text" name="id" required pattern="\d{1,10}" min="0" max="2147483647"
+                       title="Only numbers, max=2147483647"/><br/>
+            </fieldset>
+            <br/>
+
+            <input type="submit" value="<fmt:message key='confirm_order.button'/>">
+        </form>
+
+
+        <%-- CONTENT --%>
+
+    </div>
+
+    <%@ include file="/WEB-INF/jspf/footer.jspf" %>
+
+</div>
 </body>
 </html>

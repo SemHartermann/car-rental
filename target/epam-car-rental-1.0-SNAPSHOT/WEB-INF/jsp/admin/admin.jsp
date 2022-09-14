@@ -8,28 +8,14 @@
 <%@ include file="/WEB-INF/jspf/head.jspf"%>
 
 <body>
-	<table id="main-container">
+<div class="content">
+	<%@ include file="/WEB-INF/jspf/header.jspf"%>
 
-		<%@ include file="/WEB-INF/jspf/header.jspf"%>
-		
-		<tr>
-			<td class="content">
-			<%-- CONTENT --%>
-				<div id="admin_hello" align="center">
-				<table id="admin_hello">
-				
-		
-				<tr><fmt:message key='admin.hello'/></tr>
-				
-				</table>
-				</div>
-		
-			<%-- CONTENT --%>
-			</td>
-		</tr>
-		
-		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
+	<div id="admin_hello" >
+			<fmt:message key='admin.hello'/>
+	</div>
 
-	</table>
+	<%@ include file="/WEB-INF/jspf/footer.jspf"%>
+</div>
 </body>
 </html>

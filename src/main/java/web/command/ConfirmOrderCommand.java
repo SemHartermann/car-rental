@@ -16,8 +16,6 @@ import java.io.IOException;
 
 public class ConfirmOrderCommand extends Command {
 
-	private static final long serialVersionUID = -6240793727453182133L;
-
 	private static final Logger LOG = Logger
 			.getLogger(ConfirmOrderCommand.class);
 

@@ -11,7 +11,6 @@ import javax.servlet.jsp.jstl.core.Config;
 
 
 public class ChangeLocaleCommand extends Command {
-	private static final long serialVersionUID = 1L;
 
 	private static final Logger LOG = Logger
 			.getLogger(ChangeLocaleCommand.class);

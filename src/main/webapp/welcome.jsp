@@ -1,35 +1,26 @@
-<%@ page pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/jspf/directive/page.jspf"%>
-<%@ include file="/WEB-INF/jspf/directive/taglib.jspf"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ include file="/WEB-INF/jspf/directive/page.jspf" %>
+<%@ include file="/WEB-INF/jspf/directive/taglib.jspf" %>
 
 <html>
 
-<c:set var="title" value="Welcome" scope="page" />
-<%@ include file="/WEB-INF/jspf/head.jspf"%>
+<c:set var="title" value="Welcome" scope="page"/>
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 
 <body>
-	<table id="main-container">
+<%@ include file="/WEB-INF/jspf/header.jspf" %>
+<div class="content center align-items-center">
 
-		<%@ include file="/WEB-INF/jspf/header.jspf"%>
-		
-		<tr>
-			<td class="content">
-			<%-- CONTENT --%>
-				<div id="admin_hello" align="center">
-				<table id="admin_hello">
-				
-		
-				<tr>${title}</tr>
-				
-				</table>
-				</div>
-		
-			<%-- CONTENT --%>
-			</td>
-		</tr>
-		
-		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
-
-	</table>
+    <div class="row center align-items-center">
+        <h1>
+            Welcome to Epam Car Rental
+        </h1>
+        <div class="btn-group center align-items-center" role="group" aria-label="Basic outlined example">
+            <a type="button" class="btn btn-outline-dark" href="login.jsp"><fmt:message key='login.header'/></a>
+            <a type="button" class="btn btn-outline-dark" href="register.jsp"><fmt:message key='register.header'/></a>
+        </div>
+    </div>
+    <%@ include file="/WEB-INF/jspf/footer.jspf" %>
+</div>
 </body>
 </html>

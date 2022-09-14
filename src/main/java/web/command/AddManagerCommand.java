@@ -30,14 +30,14 @@ public class AddManagerCommand extends Command {
 		int idRole = Role.MANAGER.ordinal();
 		user.setRoleId(idRole);
 
-		String login = String.valueOf(request.getParameter("login"));
-		user.setEmail(login);
-		LOG.trace("Request parameter: loging --> " + user.getEmail());
+		String email = String.valueOf(request.getParameter("email"));
+		user.setEmail(email);
+		LOG.trace("Request parameter: email --> " + user.getEmail());
 		String password = String.valueOf(request.getParameter("password"));
 		user.setPassword(password);
 		LOG.trace("Request parameter: password --> " + user.getPassword());
 
-		if (login == null || password == null || login.isEmpty()
+		if (email == null || password == null || email.isEmpty()
 				|| password.isEmpty()) {
 			String errorMessasge = "Login/password cannot be empty";
 			session.setAttribute("errorMessage", errorMessasge);

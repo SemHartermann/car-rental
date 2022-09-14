@@ -180,8 +180,8 @@ public class OrderTest {
 	public void testToString() {
 		Order order = new Order();
 		String actual = order.toString();
-		String expected = "Order [userId=0, carId=0, driverStatus=false, orderData=null, "
-				+ "returnData=null, orderPrice=0, statusId=0, rejectionReason=null, damage=false, "
+		String expected = "Order [userId=0, carId=0, driverStatus=false, startDate=null, "
+				+ "endDate=null, price=0, statusId=0, rejectionReason=null, damage=false, "
 				+ "priceForRepairs=0]";
 		assertEquals(expected, actual);
 	}

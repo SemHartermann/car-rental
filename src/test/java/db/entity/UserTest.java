@@ -42,7 +42,7 @@ public class UserTest {
 		User user = new User();
 		user.setEmail("email@mail");
 		String actual = user.getEmail();
-		String expected = "mail@mail";
+		String expected = "email@mail";
 		assertEquals(expected, actual);
 	}
 
@@ -84,7 +84,7 @@ public class UserTest {
 	public void testToString() {
 		User user = new User();
 		String actual = user.toString();
-		String expected = "User [roleId=0, login=null, password=null, status=false]";
+		String expected = "User [roleId=0, email=null, password=null, status=false]";
 		assertEquals(expected, actual);
 	}
 

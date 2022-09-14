@@ -212,7 +212,7 @@ public class MySqlOrderDAO implements OrderDAO {
 
     public void updateOrderStatusRej(Connection con, Order order) {
         try (PreparedStatement pstmt = con.prepareStatement(SQL_UPDATE_ORDER_STATUS_REJ)){
-            pstmt.setInt(1, order.getStatusId());
+            pstmt.setInt(1, order.getStatusId()+1);
             pstmt.setString(2, order.getRejectionReason());
             pstmt.setInt(3, order.getId());
             pstmt.executeUpdate();
@@ -228,7 +228,9 @@ public class MySqlOrderDAO implements OrderDAO {
         try (PreparedStatement pstmt = con.prepareStatement(SQL_UPDATE_ORDER_RETURN);){
 
             int k = 1;
-            pstmt.setInt(k++, order.getStatusId());
+            pstmt.setInt(k++, order.getStatusId()+1);
+            pstmt.setBoolean(k++, order.isDamage());
+            pstmt.setInt(k++, order.getPriceForRepairs());
             pstmt.setInt(k, order.getId());
             pstmt.executeUpdate();
         } catch (SQLException e) {

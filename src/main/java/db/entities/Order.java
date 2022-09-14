@@ -125,7 +125,7 @@ public class Order extends Entity {
                 + ", driverStatus=" + driverStatus + ", startDate=" + startDate
                 + ", endDate=" + endDate + ", price=" + price
                 + ", statusId=" + statusId + ", rejectionReason="
-                + rejectionReason + "]";
+                + rejectionReason + ", damage=" + damage + ", priceForRepairs=" + priceForRepairs +"]";
     }
 
 }

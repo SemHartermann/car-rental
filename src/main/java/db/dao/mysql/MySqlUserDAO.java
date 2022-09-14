@@ -15,7 +15,7 @@ public class MySqlUserDAO implements UserDAO {
 
     private static final Logger LOG = Logger.getLogger(MySqlUserDAO.class);
 
-    private static final String SQL_UPDATE_USER = "UPDATE user SET user_status=? WHERE id=?";
+    private static final String SQL_UPDATE_USER = "UPDATE user SET status=? WHERE id=?";
     private static final String SQL_FIND_ALL_USERS = "SELECT * FROM user";
     private static final String SQL_FIND_USER_BY_ID = "SELECT * FROM user WHERE id=?";
     private static final String SQL_FIND_USER_BY_LOGIN = "SELECT * FROM user WHERE email=?";
@@ -47,10 +47,10 @@ public class MySqlUserDAO implements UserDAO {
     public User findUserById(int id) {
         User user = null;
         try (Connection con = DBManager.getInstance().getConnection();
-             PreparedStatement pstmt = con.prepareStatement(SQL_FIND_USER_BY_ID);
-             ResultSet rs = pstmt.executeQuery()) {
+             PreparedStatement pstmt = con.prepareStatement(SQL_FIND_USER_BY_ID)) {
 
             pstmt.setLong(1, id);
+            ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 user = extractUser(rs);
             }
@@ -110,7 +110,7 @@ public class MySqlUserDAO implements UserDAO {
 
         try (Connection con = DBManager.getInstance().getConnection()){
             updateUserStatus(con, user);
-            con.commit();
+            /*con.commit();*/
         } catch (SQLException ex) {
             /*rollback(con);
             throw new DBException(Messages.ERR_CANNOT_UPDATE_USER, ex);*/

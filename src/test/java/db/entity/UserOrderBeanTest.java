@@ -217,7 +217,7 @@ public class UserOrderBeanTest {
 		String actual = userOrderBean.toString();
 		System.out.println(userOrderBean);
 		String expected = "UserOrderBean [orderId=0, userFirstName=null, userLastName=null, "
-				+ "carName=null, driverStatus=false, orderData=null, returnData=null, orderPrice=0, "
+				+ "carName=null, driverStatus=false, startDate=null, endDate=null, orderPrice=0, "
 				+ "statusName=null, rejectionReason=null, damage=false, priceForRepairs=0]";
 		assertEquals(expected, actual);
 	}

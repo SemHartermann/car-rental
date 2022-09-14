@@ -12,4 +12,5 @@ public interface CarDAO {
     public Car findCarById(int id) ;
     public List<Car> findCarsInRent() ;
     public List<Car> findAvailableCars();
+    public String toString();
 }

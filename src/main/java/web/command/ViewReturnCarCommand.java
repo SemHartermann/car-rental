@@ -12,8 +12,6 @@ import java.io.IOException;
 
 public class ViewReturnCarCommand extends Command {
 
-	private static final long serialVersionUID = -39161132321687163L;
-
 	private static final Logger LOG = Logger
 			.getLogger(ViewReturnCarCommand.class);
 

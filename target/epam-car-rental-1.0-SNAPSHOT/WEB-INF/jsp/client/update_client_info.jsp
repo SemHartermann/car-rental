@@ -3,62 +3,48 @@
 
 <html>
 
-<c:set var="title" value="UpdateUserInfo" />
+<c:set var="title" value="UpdateUserInfo"/>
 <%@ include file="/WEB-INF/jspf/head.jspf" %>
-	
+
 <body>
-
-	<table id="main-container">
-
-		<%-- HEADER --%>
-		<%@ include file="/WEB-INF/jspf/header.jspf"%>
-		<%-- HEADER --%>
+<div class="content">
+    <%@ include file="/WEB-INF/jspf/header.jspf" %>
+    <form id="login_form" action="controller" method="post">
 
 
-		<tr >
-			<td class="content center">
-			<%-- CONTENT --%>
+        <input type="hidden" name="command" value="updateUserInfo"/>
 
-				
-				<form id="login_form" action="controller" method="post">
+        <fieldset>
+            <legend><fmt:message key='update_client_info.firstName'/></legend>
+            <input name="firstName" required <%--pattern="\.{3,20}"--%> maxlength="20"
+                   title="from 3 to 20 symbols (Latin or cyrillic alphabet, numbers)"/><br/>
+        </fieldset>
+        <br/>
+        <fieldset>
+            <legend><fmt:message key='update_client_info.lastName'/></legend>
+            <input name="lastName" required <%--pattern="\.{3,20}"--%> maxlength="20"
+                   title="from 3 to 20 symbols (Latin or cyrillic alphabet, numbers)"/><br/>
+        </fieldset>
+        <br/>
+        <fieldset>
+            <legend><fmt:message key='update_client_info.passport'/></legend>
+            <input type="text" name="passportNumber" required pattern="\d{3,20}" maxlength="20"
+                   title="Only numbers, max 20 numbers"/><br/>
+        </fieldset>
+        <br/>
+        <fieldset>
+            <legend><fmt:message key='update_client_info.telephone'/></legend>
+            <input type="text" name="phoneNumber" required pattern="\d{1,20}"
+                   title="Only numbers, max 20 numbers"/><br/>
+        </fieldset>
+        <br/>
 
 
-					<input type="hidden" name="command" value="updateUserInfo"/>
+        <input type="submit" value="<fmt:message key='update_client_info.button'/>">
+    </form>
+    <%@ include file="/WEB-INF/jspf/footer.jspf" %>
+</div>
 
-					<fieldset >
-						<legend><fmt:message key='update_client_info.firstName'/></legend>
-						<input  name="firstName" required <%--pattern="\.{3,20}"--%>  maxlength="20"
-						title="from 3 to 20 symbols (Latin or cyrillic alphabet, numbers)"/><br/>
-					</fieldset><br/>
-					<fieldset >
-						<legend><fmt:message key='update_client_info.lastName'/></legend>
-						<input  name="lastName" required <%--pattern="\.{3,20}"--%>  maxlength="20"
-						title="from 3 to 20 symbols (Latin or cyrillic alphabet, numbers)"/><br/>
-					</fieldset><br/>
-					<fieldset >
-						<legend><fmt:message key='update_client_info.passport'/></legend>
-						<input type="text" name="passportNumber" required pattern="\d{3,20}"  maxlength="20"
-						title="Only numbers, max 20 numbers"/><br/>
-					</fieldset><br/>
-					<fieldset >
-						<legend><fmt:message key='update_client_info.telephone'/></legend>
-						<input type="text" name="phoneNumber" required pattern="\d{1,20}" 
-						title="Only numbers, max 20 numbers"/><br/>
-					</fieldset><br/>
 
-					
-					
-					<input type="submit" value="<fmt:message key='update_client_info.button'/>">								
-				</form> 
-				
-				
-			<%-- CONTENT --%>
-
-			</td>
-		</tr>
-
-		<%@ include file="/WEB-INF/jspf/footer.jspf"%>
-		
-	</table>
 </body>
 </html>
