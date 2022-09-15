@@ -25,6 +25,8 @@ public class ViewAddUserInfoCommand extends Command {
 		LOG.debug("ViewAddUserInfoCommand starts");
 		HttpSession session = request.getSession();
 		int userId = (int) session.getAttribute("userId");
+		LOG.debug("Get parametr: carId --> "+ request.getParameter("carId"));
+		session.setAttribute("carId",request.getParameter("carId"));
 		try {
 			int userInfoId = DaoFactory.getUserInfoDAOInstance().findUserInfoByUserId(userId).getId();
 			LOG.trace("Get parametr: userInfoId --> " + userInfoId);

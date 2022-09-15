@@ -39,11 +39,7 @@ public class SelectionCarCommand extends Command {
 				.filter(c->c.getCarClass().equals(selectByClass))
 				.filter(car -> car.getMark().equals(selectByMark))
 				.collect(Collectors.toList());
-		/*for (Car car : cars) {
-			if (car.getCarClass().equalsIgnoreCase(selectByClass)&&car.getMark().equalsIgnoreCase(selectByMark)) {
-				selectCars.add(car);
-			}
-		}*/
+
 
 		request.setAttribute("selectCars", selectCars);
 		LOG.trace("Set the request attribute: selectCars --> " + selectCars);

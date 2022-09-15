@@ -1,4 +1,4 @@
-package db.dao.factory;
+/*package db.dao.factory;
 
 import db.dao.*;
 import db.dao.mysql.*;
@@ -45,4 +45,4 @@ public class DaoFactoryTest {
         UserDAO expected = new MySqlUserDAO();
         assertEquals(expected, actual);
     }
-}
+}*/

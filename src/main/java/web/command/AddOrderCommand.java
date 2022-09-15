@@ -35,8 +35,9 @@ public class AddOrderCommand extends Command {
 		int userId = (int) session.getAttribute("userId");
 		order.setUserId(userId);
 		LOG.trace("Request parameter: userId --> " + order.getUserId());
+		LOG.trace("Request parameter: carId --> " + String.valueOf(session.getAttribute("carId")));
 
-		String car_id_s = request.getParameter("carId");
+		String car_id_s =String.valueOf(session.getAttribute("carId"));
 
 		if (car_id_s == null || car_id_s.isEmpty()) {
 			String errorMessasge = "CarId cannot be empty";

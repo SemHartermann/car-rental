@@ -39,7 +39,7 @@ public class MySqlUserInfoBeanDAO implements UserInfoBeanDAO {
     }
 
     public List<UserInfoBean> getUserInfoBeans() throws DBException {
-        List<UserInfoBean> infoUserBeanList = new ArrayList<UserInfoBean>();
+        List<UserInfoBean> infoUserBeanList = new ArrayList<>();
 
         try (Connection con = DBManager.getInstance().getConnection();
              Statement stmt = con.createStatement();
@@ -48,7 +48,6 @@ public class MySqlUserInfoBeanDAO implements UserInfoBeanDAO {
             while (rs.next()) {
                 infoUserBeanList.add(extractUserInfoBean(rs));
             }
-            /*con.commit();*/
         } catch (SQLException ex) {
             LOG.error(Messages.ERR_CANNOT_OBTAIN_USER_INFO_BEANS, ex);
             throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_INFO_BEANS,

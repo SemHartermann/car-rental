@@ -12,22 +12,15 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * Security filter. Disabled by default. Uncomment Security filter section in
- * web.xml to enable.
- * 
- * @author A.Yegorov
- * 
- */
 public class CommandAccessFilter implements Filter {
 
 	private static final Logger LOG = Logger
 			.getLogger(CommandAccessFilter.class);
 
 	// commands access
-	private Map<Role, List<String>> accessMap = new HashMap<Role, List<String>>();
-	private List<String> commons = new ArrayList<String>();
-	private List<String> outOfControl = new ArrayList<String>();
+	private Map<Role, List<String>> accessMap = new HashMap<>();
+	private List<String> commons = new ArrayList<>();
+	private List<String> outOfControl = new ArrayList<>();
 
 	public void destroy() {
 		LOG.debug("Filter destruction starts");
@@ -105,13 +98,6 @@ public class CommandAccessFilter implements Filter {
 		LOG.debug("Filter initialization finished");
 	}
 
-	/**
-	 * Extracts parameter values from string.
-	 * 
-	 * @param str
-	 *            parameter values string.
-	 * @return list of parameter values.
-	 */
 	private List<String> asList(String str) {
 		List<String> list = new ArrayList<String>();
 		StringTokenizer st = new StringTokenizer(str);

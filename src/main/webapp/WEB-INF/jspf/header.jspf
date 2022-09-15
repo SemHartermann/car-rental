@@ -52,12 +52,8 @@
                                     key='list_orders_by_user_id.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=viewAvailableCars"><fmt:message
                                     key='list_available_cars.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=viewAddUserInfo"><fmt:message
-                                    key='add_client_info.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=viewUpdateUserInfo"><fmt:message
                                     key='update_client_info.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=selectBySomething"><fmt:message
-                                    key='list_selection_cars.header'/></a>
                         </c:when>
                     </c:choose>
 

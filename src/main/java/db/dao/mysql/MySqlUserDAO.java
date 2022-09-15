@@ -5,6 +5,8 @@ import db.DBManager;
 import db.Fields;
 import db.dao.UserDAO;
 import db.entities.User;
+import db.exceptions.DBException;
+import db.exceptions.Messages;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -33,12 +35,12 @@ public class MySqlUserDAO implements UserDAO {
             }
 
         } catch (SQLException ex) {
-            /*rollback(con);
-            LOG.error(Messages.ERR_CANNOT_OBTAIN_USERS, ex);*/
+
+            LOG.error(Messages.ERR_CANNOT_OBTAIN_USERS, ex);
             /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_USERS, ex);*/
             ex.printStackTrace();
         } finally {
-            /*close(con, stmt, rs);*/
+
 
         }
         return userList;
@@ -54,10 +56,10 @@ public class MySqlUserDAO implements UserDAO {
             if (rs.next()) {
                 user = extractUser(rs);
             }
-            /*con.commit();*/
+            con.commit();
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_ID, ex);*/
+
+            /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_ID, ex);*/
             ex.printStackTrace();
         } finally {
         }
@@ -74,10 +76,10 @@ public class MySqlUserDAO implements UserDAO {
             if (rs.next()) {
                 user = extractUser(rs);
             }
-            /*con.commit();*/
+            con.commit();
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_LOGIN, ex);*/
+
+            /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_LOGIN, ex);*/
             ex.printStackTrace();
         } finally {
 
@@ -96,12 +98,11 @@ public class MySqlUserDAO implements UserDAO {
             pstmt.setString(3, user.getPassword());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
-            /*rollback(con);
-            LOG.error(Messages.ERR_CANNOT_CREATE_USER, ex);*/
+
+            LOG.error(Messages.ERR_CANNOT_CREATE_USER, ex);
             ex.printStackTrace();
         } finally {
-            /*close(pstmt);
-            commitAndCloseConnection(con);*/
+
         }
         return user;
     }
@@ -110,10 +111,10 @@ public class MySqlUserDAO implements UserDAO {
 
         try (Connection con = DBManager.getInstance().getConnection()){
             updateUserStatus(con, user);
-            /*con.commit();*/
+            con.commit();
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_UPDATE_USER, ex);*/
+
+            /*throw new DBException(Messages.ERR_CANNOT_UPDATE_USER, ex);*/
             ex.printStackTrace();
         } finally {
         }

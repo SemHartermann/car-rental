@@ -62,13 +62,12 @@ public class MySqlOrderDAO implements OrderDAO {
             while (rs.next()) {
                 ordersList.add(extractOrder(rs));
             }
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);*/
             try {
                 throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDERS, ex);
             } catch (DBException e) {
-                ex.printStackTrace();
+
                 throw new RuntimeException(e);
             }
 
@@ -78,7 +77,7 @@ public class MySqlOrderDAO implements OrderDAO {
         return ordersList;
     }
 
-    public List<Order> findOrdersByUserId(int userId){
+    public List<Order> findOrdersByUserId(int userId) throws DBException {
         List<Order> ordersList = new ArrayList<>();
 
         try (Connection con = DBManager.getInstance().getConnection();
@@ -89,17 +88,16 @@ public class MySqlOrderDAO implements OrderDAO {
             while (rs.next()) {
                 ordersList.add(extractOrder(rs));
             }
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDERS_BY_USER_ID, ex);*/
-            ex.printStackTrace();
+            throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDERS_BY_USER_ID, ex);
         } finally {
 
         }
         return ordersList;
     }
 
-    public Order findOrderById(int id){
+    public Order findOrderById(int id) throws DBException {
         Order order = new Order();
 
         try (Connection con = DBManager.getInstance().getConnection();
@@ -110,11 +108,11 @@ public class MySqlOrderDAO implements OrderDAO {
             if (rs.next()) {
                 order = extractOrder(rs);
             }
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDER_BY_ID, ex);*/
-            ex.printStackTrace();
+
+            throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDER_BY_ID, ex);
+
         } finally {
 
 
@@ -145,55 +143,54 @@ public class MySqlOrderDAO implements OrderDAO {
             pstmt.setInt(7, order.getStatusId()+1);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
-            /*rollback(con);*/
+
             LOG.error(Messages.ERR_CANNOT_CREATE_ORDER, ex);
-            ex.printStackTrace();
+
         } finally {
 
         }
         return order;
     }
 
-    public void updateOrderStatus(Order order)  {
+    public void updateOrderStatus(Order order) throws DBException {
 
         try (Connection con = DBManager.getInstance().getConnection();){
 
             updateOrderStatus(con, order);
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_UPDATE_ORDER_STATUS, ex);*/
-            ex.printStackTrace();
+
+            throw new DBException(Messages.ERR_CANNOT_UPDATE_ORDER_STATUS, ex);
         } finally {
 
         }
     }
 
-    public void updateOrderStatusRej(Order order)  {
+    public void updateOrderStatusRej(Order order) throws DBException {
 
         try (Connection con = DBManager.getInstance().getConnection();){
 
             updateOrderStatusRej(con, order);
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_UPDATE_ORDER_STATUS, ex);*/
-            ex.printStackTrace();
+
+            throw new DBException(Messages.ERR_CANNOT_UPDATE_ORDER_STATUS, ex);
+
         } finally {
 
         }
     }
 
-    public void updateOrderReturn(Order order)  {
+    public void updateOrderReturn(Order order) throws DBException {
 
         try (Connection con = DBManager.getInstance().getConnection();){
 
             updateOrderReturn(con, order);
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);
-            throw new DBException(Messages.ERR_CANNOT_UPDATE_ORDER_STATUS, ex);*/
-            ex.printStackTrace();
+
+            throw new DBException(Messages.ERR_CANNOT_UPDATE_ORDER_STATUS, ex);
+
         } finally {
 
         }

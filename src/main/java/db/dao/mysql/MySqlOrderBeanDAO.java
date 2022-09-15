@@ -40,9 +40,9 @@ public class MySqlOrderBeanDAO implements OrderBeanDAO {
             while (rs.next()) {
                 orderUserBeanList.add(extractUserOrderBean(rs));
             }
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);*/
+
             LOG.error(Messages.ERR_CANNOT_OBTAIN_USER_ORDER_BEANS, ex);
             throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_ORDER_BEANS,
                     ex);
@@ -64,9 +64,9 @@ public class MySqlOrderBeanDAO implements OrderBeanDAO {
             while (rs.next()) {
                 orderUserBeanList.add(extractUserOrderBean(rs));
             }
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);*/
+
             LOG.error(Messages.ERR_CANNOT_OBTAIN_USER_ORDER_BEANS, ex);
             throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_ORDER_BEANS,
                     ex);

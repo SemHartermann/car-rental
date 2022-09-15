@@ -55,7 +55,7 @@ public class MySqlUserInfoDAO implements UserInfoDAO {
         } catch (SQLException ex) {
             LOG.error(Messages.ERR_CANNOT_CREATE_CAR, ex);
         } finally {
-            /*commitAndCloseConnection(con);*/
+
         }
         return userInfo;
     }
@@ -63,12 +63,12 @@ public class MySqlUserInfoDAO implements UserInfoDAO {
     public void updateUserInfo(UserInfo userInfo) throws DBException {
         try (Connection con = DBManager.getInstance().getConnection()){
             updateUserInfo(con, userInfo);
-            /*con.commit();*/
+
         } catch (SQLException ex) {
-            /*rollback(con);*/
+
             throw new DBException(Messages.ERR_CANNOT_UPDATE_USER_INFO, ex);
         } finally {
-            /*close(con);*/
+
         }
     }
 
@@ -98,7 +98,7 @@ public class MySqlUserInfoDAO implements UserInfoDAO {
         userinfo.setPassportNumber(rs
                 .getString(Fields.USER_INFO_PASSPORT_NUMBER));
         userinfo.setPhoneNumber(rs.getString(Fields.USER_INFO_PHONE_NUMBER));
-        /*userinfo.setEmail(rs.getString(Fields.USER_INFO_EMAIL));*/
+        userinfo.setEmail(rs.getString(Fields.USER_INFO_EMAIL));
 
         return userinfo;
     }

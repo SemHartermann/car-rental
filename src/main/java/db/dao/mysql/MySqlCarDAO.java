@@ -29,7 +29,7 @@ public class MySqlCarDAO implements CarDAO {
             +"  from car c, `order` o "
             +"where c.id=o.car_id and (o.status_id=2 or o.status_id=4 or o.status_id=1);";
 
-
+    
     public boolean deleteCarById(int id) throws DBException {
         try (Connection con = DBManager.getInstance().getConnection();
              PreparedStatement pstmt = con.prepareStatement(SQL_DELETE_CAR_BY_ID)) {

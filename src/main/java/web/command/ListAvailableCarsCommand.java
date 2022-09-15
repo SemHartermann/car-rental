@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ListAvailableCarsCommand extends Command {
@@ -32,6 +33,23 @@ public class ListAvailableCarsCommand extends Command {
 
 		String sortCommand = request.getParameter("sort");
 
+		List<Car> selectCars;
+
+		String selectByMark = request.getParameter("selectionByMark");
+		LOG.trace("Found in DB: selectByMark --> " + selectByMark);
+		String selectByClass = request.getParameter("selectionByClass");
+		LOG.trace("Found in DB: selectByClass --> " + selectByClass);
+
+		cars = cars.stream()
+				.filter(c->c.getCarClass().equals(selectByClass))
+				.filter(car -> car.getMark().equals(selectByMark))
+				.collect(Collectors.toList());
+
+
+		LOG.trace("Set the request attribute: selectCars --> " + cars);
+
+		LOG.debug("SelectionCarCommand finished");
+
 		if (sortCommand.equalsIgnoreCase("price")) {
 			cars.sort(new Comparator<Car>() {
 				public int compare(Car c1, Car c2) {
@@ -45,7 +63,8 @@ public class ListAvailableCarsCommand extends Command {
 				}
 			});
 		}
-			
+
+
 
 		request.setAttribute("availableCarsList", cars);
 		LOG.trace("Set the request attribute: availableCarsList --> " + cars);
