@@ -16,28 +16,27 @@
 
             <form>
                 <input type="hidden" name="command" value="availableCarsList"/>
-                <select name="sort">
+                <select name="sort" class="btn btn-outline-dark">
+                    <option value="-">-</option>
                     <option value="name"><fmt:message key='list_available_cars.name'/></option>
                     <option value="price"><fmt:message key='list_available_cars.price'/></option>
                 </select>
                 <input type="hidden" name="command" value="selectCarsSel"/>
-                <select
-                        name="selectionByClass">
+                <select name="selectionByClass" class="btn btn-outline-dark">
+                    <option value="-">-</option>
                     <c:forEach var="carClass" items="${selectCarsClass}">
                         <option value="${carClass}">${carClass}</option>
                     </c:forEach>
                 </select>
                 <input type="hidden" name="command" value="selectCarsSel"/>
-                <select
-                        name="selectionByMark">
-
+                <select name="selectionByMark" class="btn btn-outline-dark">
+                    <option value="-">-</option>
                     <c:forEach var="carMark" items="${selectCarsMark}">
                         <option value="${carMark}">${carMark}</option>
                     </c:forEach>
                 </select>
-                <p>
-                    <input type="submit" value="<fmt:message key='list_available_cars.sort'/>"/>
-                </p>
+                <input class="btn btn-outline-dark" type="submit"
+                       value="<fmt:message key='list_available_cars.sort'/>"/>
             </form>
 
 
@@ -66,6 +65,15 @@
                             <td width="100px" align="center">${car.carClass}</td>
                             <td width="100px" align="center">${car.price}</td>
                             <td width="100px" align="center">${car.driverPrice}</td>
+                            <td width="100px" align="center">
+                                <form action="controller?command=viewAddUserInfo" method="post">
+                                    <input type="hidden" name="carId" value="${car.id}"/>
+                                    <div class="col">
+                                        <input class="btn btn-outline-dark" type="submit" value="<fmt:message
+									key='add_client_info.header'/>">
+                                    </div>
+                                </form>
+                            </td>
                         </tr>
 
                     </c:forEach>
@@ -98,28 +106,6 @@
             <%@ include file="/WEB-INF/jspf/footer.jspf" %>
 </table>
 
-<%--END BODY CLASS
-<c:forEach var="car" items="${availableCarsListById}">
-
-                   <myT:carstable id="${car.id}"
-                                  driverPrice="${car.driverPrice}"
-                                  model="${car.model}" price="${car.price}"
-                                  carClass="${car.Carclass}" mark="${car.mark}" />
-
-               </c:forEach>
-               &lt;%&ndash; CONTENT &ndash;%&gt;
-                &lt;%&ndash;	Cars sorting form  &ndash;%&gt;
-                <c:if test="${fn:length(param.sort) > 0}">
-                   <c:forEach var="car" items="${availableCarsList}">
-
-                       <myT:carstable driverPrice="${car.driverPrice}"
-                           model="${car.model}" price="${car.price}"
-                           carClass="${car.carClass}" mark="${car.mark}" id="${car.id}"/>
-
-                   </c:forEach>
-               </c:if>
-
-footer end --%>
 </body>
 </html>
 

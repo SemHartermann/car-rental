@@ -27,7 +27,11 @@ public class ClientCommand extends Command {
 
 
 		HttpSession session = request.getSession();
+
 		int userId = (int) session.getAttribute("userId");
+		LOG.trace("Get attribute: userId --> " + session.getAttribute("userId"));
+
+		LOG.trace("Found in DB: userInfo --> " + DaoFactory.getUserInfoDAOInstance().findUserInfoByUserId(userId));
 
 		UserInfo userInfo = DaoFactory.getUserInfoDAOInstance().findUserInfoByUserId(userId);
 		LOG.trace("Found in DB: userInfo --> " + userInfo);

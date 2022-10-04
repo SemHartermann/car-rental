@@ -18,15 +18,17 @@
 
     <div class="align-items-center">
         <%-- CONTENT --%>
-        <form>
-            <input type="hidden" name="command" value="changeLocale"/> <select
+        <form >
+            <input type="hidden" name="command" value="changeLocale"/>
+            <select
                 name="locale">
             <option value="ru">ru</option>
             <option value="en">en</option>
 
         </select>
+            <br>
             <p>
-                <input type="submit"
+                <input class="btn btn-outline-dark" type="submit"
                        value="<fmt:message key='locale.save'/>"/>
             </p>
         </form>

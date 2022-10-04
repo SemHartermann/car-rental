@@ -76,7 +76,6 @@ public class MySqlUserDAO implements UserDAO {
             if (rs.next()) {
                 user = extractUser(rs);
             }
-            con.commit();
         } catch (SQLException ex) {
 
             /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_LOGIN, ex);*/

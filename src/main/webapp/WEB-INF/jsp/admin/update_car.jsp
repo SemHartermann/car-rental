@@ -24,11 +24,9 @@
 
 					<input type="hidden" name="command" value="updateCar"/>
 
-					<fieldset >
-						<legend><fmt:message key='update_car.id'/></legend>
-						<input type="text" name="id" required pattern="\d{1,10}" min="0" max="2147483647" 
-				title="Only numbers, max=2147483647"/><br/>
-					</fieldset><br/>
+
+					<input type="hidden" name="id" value="${id}"/>
+
 					<fieldset >
 						<legend><fmt:message key='update_car.price'/></legend>
 						<input type="text" name="price" required pattern="\d{1,10}" min="0" max="2147483647"

@@ -16,7 +16,7 @@
 
 <center>
 	<table>
-		<tr>
+		<%--<tr>
 			<td rowspan="3" colspan="5" align="center">
 			<img style="background: url('images/cars/id/${id}.jpg'); width:330px; height:200px;
 					border: 0px; border-radius:20px; -webkit-border-radius:20px; -moz-border-radius:20px;">
@@ -27,7 +27,7 @@
 			<td width="100px" align="center"><fmt:message key='carstable.price'/></td>
 			<td width="100px" align="center"><fmt:message key='carstable.driverPrice'/></td>
 			
-		</tr>
+		</tr>--%>
 		<tr>
 		<td width="100px" align="center">${id}</td>
 			<td width="100px" align="center">${model}</td>

@@ -22,10 +22,6 @@
                                     key='list_client_info.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=viewAddCar"><fmt:message
                                     key='add_car.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=viewDeleteCar"><fmt:message
-                                    key='delete_car_by_id.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=viewUpdateCar"><fmt:message
-                                    key='update_car.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=viewAddManager"><fmt:message
                                     key='add_manager.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=viewChangeUserStatus"><fmt:message
@@ -38,12 +34,7 @@
                                     key='manager.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=userOrderBeanList"><fmt:message
                                     key='list_orders.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=viewConfirmOrder"><fmt:message
-                                    key='confirm_order.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=viewRejectOrder"><fmt:message
-                                    key='reject_order.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=viewReturnCar"><fmt:message
-                                    key='return_order.header'/></a> &nbsp;
+                            &nbsp;
                         </c:when>
                         <c:when test="${userRole.name == 'client'}">
                             <a class="nav-link" href="controller?command=client"><fmt:message
@@ -64,9 +55,19 @@
             <c:if test="${not empty userRole}">
                 <c:out value="(${userRole.name})"/>
             </c:if>
-            <span><t:NewTag/> </span>
-            <a href="controller?command=logout"><fmt:message key='logout.header'/></a>
-            <a href="controller?command=viewLocale"><fmt:message key='locale.header'/></a>
+            <t:NewTag/>
+
+            <%--<a href="controller?command=viewLocale"><fmt:message key='locale.header'/></a>--%>
+            <form >
+                <a class="btn btn-outline-dark" href="controller?command=logout"><fmt:message key='logout.header'/></a>
+                <input type="hidden" name="command" value="changeLocale"/>
+                <select class="btn btn-outline-dark" name="locale">
+                    <option value="ru">ru</option>
+                    <option value="en">en</option>
+                </select>
+                <input class="btn btn-outline-dark" type="submit"
+                       value="<fmt:message key='locale.save'/>"/>
+            </form>
         </div>
     </nav>
 

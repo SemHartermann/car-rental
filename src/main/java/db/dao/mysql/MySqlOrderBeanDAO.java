@@ -53,7 +53,7 @@ public class MySqlOrderBeanDAO implements OrderBeanDAO {
     }
 
     public List<UserOrderBean> getUserOrderBeansByUserId(int userId) throws DBException {
-        List<UserOrderBean> orderUserBeanList = new ArrayList<UserOrderBean>();
+        List<UserOrderBean> orderUserBeanList = new ArrayList<>();
 
 
         try (Connection con = DBManager.getInstance().getConnection();

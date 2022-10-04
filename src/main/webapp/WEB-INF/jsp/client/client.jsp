@@ -28,7 +28,7 @@
                         <div class="col">${user.lastName}</div>
                         <div class="col">${user.passportNumber}</div>
                         <div class="col">${user.phoneNumber}</div>
-                        <div class="col">${user.phoneNumber}</div>
+                        <div class="col">${user.email}</div>
                     </div>
                 </c:forEach>
             </div>

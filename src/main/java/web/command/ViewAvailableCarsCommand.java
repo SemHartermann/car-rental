@@ -18,8 +18,7 @@ import java.util.Set;
 public class ViewAvailableCarsCommand extends Command {
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger LOG = Logger
-			.getLogger(ViewAvailableCarsCommand.class);
+	private static final Logger LOG = Logger.getLogger(ViewAvailableCarsCommand.class);
 
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException,

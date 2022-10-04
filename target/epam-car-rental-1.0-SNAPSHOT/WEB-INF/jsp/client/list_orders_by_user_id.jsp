@@ -29,6 +29,7 @@
                     <div class="col border-start"><fmt:message key='list_orders_by_user_id.rejectionReason'/></div>
                     <div class="col border-start"><fmt:message key='list_orders_by_user_id.damage'/></div>
                     <div class="col border-start"><fmt:message key='list_orders_by_user_id.priceForRepairs'/></div>
+                    <div class="col border-start"><fmt:message key='list_orders_by_user_id.payment'/></div>
                 </div>
                 <c:forEach var="bean" items="${userOrderBeanListByUserId}">
                     <div class="row mb-1 border-top border-3 border-dark">
@@ -43,17 +44,18 @@
                         <div class="col border-start">${bean.rejectionReason}</div>
                         <div class="col border-start">${bean.damage}</div>
                         <div class="col border-start">${bean.priceForRepairs}</div>
-                        <c:set var="opened" scope="session" value="opened"/>
-                        <c:if test="${bean.statusName == opened}">
+                        <div class="col border-start">
+                        <c:set var="confirmed" scope="session" value="confirmed"/>
+                        <c:if test="${bean.statusName == confirmed}">
                             <form id="Payment_from_orders_form" action="controller" method="post">
                                 <input type="hidden" name="command" value="paymentFromOrders"/>
                                 <input type="hidden" name="price" value="${bean.orderPrice}"/>
                                 <input type="hidden" name="orderId" value="${bean.id}"/>
-                                <div class="col"><input type="submit"
+                                <input type="submit" class="btn btn-outline-dark"
                                                         value="<fmt:message key='list_orders_by_user_id.payment'/>">
-                                </div>
                             </form>
                         </c:if>
+                        </div>
                     </div>
                 </c:forEach>
             </div>

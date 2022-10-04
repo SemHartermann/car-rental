@@ -10,67 +10,80 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
 public class ListAvailableCarsCommand extends Command {
 
 
-	private static final Logger LOG = Logger
-			.getLogger(ListAvailableCarsCommand.class);
+    private static final Logger LOG = Logger
+            .getLogger(ListAvailableCarsCommand.class);
 
-	@Override
-	public String execute(HttpServletRequest request,
-			HttpServletResponse response) throws IOException, ServletException,
+    @Override
+    public String execute(HttpServletRequest request,
+                          HttpServletResponse response) throws IOException, ServletException,
             AppException {
-		LOG.debug("ListAvailableCarsCommand starts");
+        LOG.debug("ListAvailableCarsCommand starts");
 
-		List<Car> cars = DaoFactory.getCarDaoInstance().findAvailableCars();
-		LOG.trace("Found in DB: availableCarsList --> " + cars);
+        List<Car> cars = DaoFactory.getCarDaoInstance().findAvailableCars();;
 
-		String sortCommand = request.getParameter("sort");
+        LOG.trace("Found in DB: cars --> " + cars);
 
-		List<Car> selectCars;
+        Set<String> selectCarsClass = new HashSet<>();
+        for (Car car : cars) {
+            selectCarsClass.add(car.getCarClass());
+        }
 
-		String selectByMark = request.getParameter("selectionByMark");
-		LOG.trace("Found in DB: selectByMark --> " + selectByMark);
-		String selectByClass = request.getParameter("selectionByClass");
-		LOG.trace("Found in DB: selectByClass --> " + selectByClass);
+        request.setAttribute("selectCarsClass", selectCarsClass);
+        LOG.trace("Set the request attribute: selectCarsClass --> "
+                + selectCarsClass);
 
-		cars = cars.stream()
-				.filter(c->c.getCarClass().equals(selectByClass))
-				.filter(car -> car.getMark().equals(selectByMark))
-				.collect(Collectors.toList());
+        Set<String> selectCarsMark = new HashSet<>();
+        for (Car car : cars) {
+            selectCarsMark.add(car.getMark());
+        }
+
+        request.setAttribute("selectCarsMark", selectCarsMark);
+        LOG.trace("Set the request attribute: selectCarsMark --> "
+                + selectCarsMark);
+        LOG.trace("Found in DB: availableCarsList --> " + cars);
+
+        String sortCommand = request.getParameter("sort");
+
+        String selectByMark = request.getParameter("selectionByMark");
+        LOG.trace("Found in DB: selectByMark --> " + selectByMark);
+        String selectByClass = request.getParameter("selectionByClass");
+        LOG.trace("Found in DB: selectByClass --> " + selectByClass);
+
+        if (selectByClass.equals("-") && selectByMark.equals("-")) {
+
+        } else if (!selectByMark.equals("-")){
+            cars = cars.stream()
+                    .filter(car -> car.getMark().equals(selectByMark))
+                    .collect(Collectors.toList());
+        } else {
+            cars = cars.stream()
+                    .filter(c -> c.getCarClass().equals(selectByClass))
+                    .collect(Collectors.toList());
+        }
 
 
-		LOG.trace("Set the request attribute: selectCars --> " + cars);
-
-		LOG.debug("SelectionCarCommand finished");
-
-		if (sortCommand.equalsIgnoreCase("price")) {
-			cars.sort(new Comparator<Car>() {
-				public int compare(Car c1, Car c2) {
-					return c1.getPrice() - c2.getPrice();
-				}
-			});
-		} else if (sortCommand.equalsIgnoreCase("name")) {
-			cars.sort(new Comparator<Car>() {
-				public int compare(Car c1, Car c2) {
-					return c1.getModel().compareTo(c2.getModel());
-				}
-			});
-		}
+        LOG.trace("Set the request attribute: selectCars --> " + cars);
 
 
+        if (sortCommand.equalsIgnoreCase("price")) {
+            cars.sort(Comparator.comparingInt(Car::getPrice));
+        } else if (sortCommand.equalsIgnoreCase("name")) {
+            cars.sort(Comparator.comparing(Car::getModel));
+        }
 
-		request.setAttribute("availableCarsList", cars);
-		LOG.trace("Set the request attribute: availableCarsList --> " + cars);
 
-		LOG.debug("ListAvailableCarsCommand finished");
-		return Path.PAGE_LIST_AVAILABLE_CARS;
-	}
+        request.setAttribute("availableCarsList", cars);
+        LOG.trace("Set the request attribute: availableCarsList --> " + cars);
+
+        LOG.debug("ListAvailableCarsCommand finished");
+        return Path.PAGE_LIST_AVAILABLE_CARS;
+    }
 
 }

@@ -32,8 +32,7 @@ public class MySqlUserInfoDAO implements UserInfoDAO {
             }
 
         } catch (SQLException ex) {
-            throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_INFO_BY_ID,
-                    ex);
+            throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_INFO_BY_ID, ex);
         } finally {
 
         }
@@ -95,8 +94,7 @@ public class MySqlUserInfoDAO implements UserInfoDAO {
         userinfo.setUserId(rs.getInt(Fields.USER_INFO_USER_ID));
         userinfo.setFirstName(rs.getString(Fields.USER_INFO_FIRST_NAME));
         userinfo.setLastName(rs.getString(Fields.USER_INFO_LAST_NAME));
-        userinfo.setPassportNumber(rs
-                .getString(Fields.USER_INFO_PASSPORT_NUMBER));
+        userinfo.setPassportNumber(rs.getString(Fields.USER_INFO_PASSPORT_NUMBER));
         userinfo.setPhoneNumber(rs.getString(Fields.USER_INFO_PHONE_NUMBER));
         userinfo.setEmail(rs.getString(Fields.USER_INFO_EMAIL));
 

@@ -28,7 +28,7 @@ public class CommandContainer {
 		commands.put("addOrder", new AddOrderCommand());
 		commands.put("payment", new PaymentCommand());
 		commands.put("paymentFromOrders", new PaymentFromOrdersCommand());
-		commands.put("viewAvailableCars", new ViewAvailableCarsCommand());
+		commands.put("viewAvailableCars", new ListCarsCommand());
 		commands.put("availableCarsList", new ListAvailableCarsCommand());
 		commands.put("updateUserInfo", new UpdateUserInfoCommand());
 		commands.put("viewUpdateUserInfo", new ViewUpdateUserInfoCommand());
