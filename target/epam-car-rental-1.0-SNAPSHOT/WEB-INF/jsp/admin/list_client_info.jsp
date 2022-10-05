@@ -28,6 +28,7 @@
 						<div class="col border-start"><fmt:message key='list_client_info.telephone'/></div>
 						<div class="col border-start"><fmt:message key='list_client_info.email'/></div>
 						<div class="col border-start"><fmt:message key='list_client_info.status'/></div>
+						<div class="col border-start"><fmt:message key='list_client_info.change'/></div>
 					</div>
 
 				<c:forEach var="user" items="${userInfoBeanList}">
@@ -42,6 +43,18 @@
 						<div class="col border-start">${user.phoneNumber}</div>
 						<div class="col border-start">${user.email}</div>
 						<div class="col border-start">${user.status}</div>
+						<div class="col border-start"><form id="login_form" action="controller" method="post">
+
+
+							<input type="hidden" name="command" value="changeUserStatus"/>
+
+
+							<input type="hidden" name="id" value="${user.id}">
+								<input type="checkbox" name="status"/>
+							<br/>
+
+							<input type="submit" value="<fmt:message key='change_user_status.button'/>">
+						</form> </div>
 					</div>
 
 				</c:forEach>

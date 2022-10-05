@@ -24,8 +24,6 @@
                                     key='add_car.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=viewAddManager"><fmt:message
                                     key='add_manager.header'/></a> &nbsp;
-                            <a class="nav-link" href="controller?command=viewChangeUserStatus"><fmt:message
-                                    key='change_user_status.header'/></a> &nbsp;
                             <a class="nav-link" href="controller?command=viewListCars"><fmt:message
                                     key='welcome_list_cars.header'/></a> &nbsp;
                         </c:when>

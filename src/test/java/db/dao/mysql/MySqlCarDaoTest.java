@@ -17,7 +17,6 @@ public class MySqlCarDaoTest {
         CarDAO carDao = DaoFactory.getCarDaoInstance();
 
         Car car = new Car();
-        car.setId(1);
         car.setModel("Camaro");
         car.setMark("Chevrolet");
         car.setCarClass("S");

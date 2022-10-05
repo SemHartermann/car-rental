@@ -17,21 +17,9 @@
     <%@ include file="/WEB-INF/jspf/header.jspf" %>
 
     <div class="align-items-center">
-        <%-- CONTENT --%>
-        <form >
-            <input type="hidden" name="command" value="changeLocale"/>
-            <select
-                name="locale">
-            <option value="ru">ru</option>
-            <option value="en">en</option>
-
-        </select>
-            <br>
             <p>
-                <input class="btn btn-outline-dark" type="submit"
-                       value="<fmt:message key='locale.save'/>"/>
+                <fmt:message key='locale.changed'/>
             </p>
-        </form>
     </div>
 
 

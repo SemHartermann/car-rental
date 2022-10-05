@@ -27,8 +27,7 @@
 					</fieldset><br/>
 					
 					<input type="submit" value="<fmt:message key='delete_car.button'/>">								
-				</form> 
-
+				</form>
 
 		</div>
 
