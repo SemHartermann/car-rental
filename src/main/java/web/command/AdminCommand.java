@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class AdminCommand extends Command {
 
-	private static final long serialVersionUID = 8935684691170457139L;
 
 	private static final Logger LOG = Logger.getLogger(ViewAddCarCommand.class);
 

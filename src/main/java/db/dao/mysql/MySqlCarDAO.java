@@ -40,7 +40,6 @@ public class MySqlCarDAO implements CarDAO {
             if (count < 1) {
                 return false;
             }
-            /*con.commit();*/
         } catch (SQLException ex) {
 
             throw new DBException(Messages.ERR_CANNOT_DELETE_CAR_BY_ID, ex);
@@ -61,11 +60,9 @@ public class MySqlCarDAO implements CarDAO {
             pstmt.setInt(5, car.getCarDriverPrice());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
-            /*LOG.error(Messages.ERR_CANNOT_CREATE_CAR, ex);*/
-            ex.printStackTrace();
+            LOG.error(Messages.ERR_CANNOT_CREATE_CAR, ex);
         } finally {
-            /*close(pstmt);
-            commitAndCloseConnection(con);*/
+
 
         }
         return car;
@@ -96,10 +93,8 @@ public class MySqlCarDAO implements CarDAO {
             while (rs.next()) {
                 carList.add(extractCar(rs));
             }
-            /*con.commit();*/
         } catch (SQLException ex) {
-            /*rollback(con);
-            LOG.error(Messages.ERR_CANNOT_OBTAIN_CARS, ex);*/
+            LOG.error(Messages.ERR_CANNOT_OBTAIN_CARS, ex);
             ex.printStackTrace();
         } finally {
 
@@ -116,9 +111,7 @@ public class MySqlCarDAO implements CarDAO {
             if (rs.next()) {
                 car = extractCar(rs);
             }
-            /*con.commit();*/
         } catch (SQLException ex) {
-            /*rollback(con);*/
             ex.printStackTrace();
         } finally {
 
@@ -136,9 +129,7 @@ public class MySqlCarDAO implements CarDAO {
             while (rs.next()) {
                 carList.add(extractCar(rs));
             }
-            /*con.commit();*/
         } catch (SQLException ex) {
-//            rollback(con);
             LOG.error(Messages.ERR_CANNOT_OBTAIN_CARS, ex);
             ex.printStackTrace();
         } finally {
@@ -190,7 +181,6 @@ public class MySqlCarDAO implements CarDAO {
         try (Connection con = DBManager.getInstance().getConnection();){
 
             updateCarPrice(con, car);
-            /*con.commit();*/
         } catch (SQLException ex) {
 
             throw new DBException(Messages.ERR_CANNOT_UPDATE_CAR, ex);

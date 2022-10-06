@@ -37,8 +37,11 @@ public class MySqlUserDAO implements UserDAO {
         } catch (SQLException ex) {
 
             LOG.error(Messages.ERR_CANNOT_OBTAIN_USERS, ex);
-            /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_USERS, ex);*/
-            ex.printStackTrace();
+            try {
+                throw new DBException(Messages.ERR_CANNOT_OBTAIN_USERS, ex);
+            } catch (DBException e) {
+                throw new RuntimeException(e);
+            }
         } finally {
 
 
@@ -59,8 +62,11 @@ public class MySqlUserDAO implements UserDAO {
             con.commit();
         } catch (SQLException ex) {
 
-            /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_ID, ex);*/
-            ex.printStackTrace();
+            try {
+                throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_ID, ex);
+            } catch (DBException e) {
+                throw new RuntimeException(e);
+            }
         } finally {
         }
         return user;
@@ -78,8 +84,12 @@ public class MySqlUserDAO implements UserDAO {
             }
         } catch (SQLException ex) {
 
-            /*throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_LOGIN, ex);*/
-            ex.printStackTrace();
+            try {
+                throw new DBException(Messages.ERR_CANNOT_OBTAIN_USER_BY_LOGIN, ex);
+            } catch (DBException e) {
+                throw new RuntimeException(e);
+            }
+
         } finally {
 
         }
@@ -113,8 +123,11 @@ public class MySqlUserDAO implements UserDAO {
             con.commit();
         } catch (SQLException ex) {
 
-            /*throw new DBException(Messages.ERR_CANNOT_UPDATE_USER, ex);*/
-            ex.printStackTrace();
+            try {
+                throw new DBException(Messages.ERR_CANNOT_UPDATE_USER, ex);
+            } catch (DBException e) {
+                throw new RuntimeException(e);
+            }
         } finally {
         }
     }

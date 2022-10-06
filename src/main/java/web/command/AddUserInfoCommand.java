@@ -14,8 +14,6 @@ import java.io.IOException;
 
 public class AddUserInfoCommand extends Command {
 
-	private static final long serialVersionUID = 2804659692088333640L;
-
 	private static final Logger LOG = Logger
 			.getLogger(AddUserInfoCommand.class);
 
@@ -53,9 +51,6 @@ public class AddUserInfoCommand extends Command {
 		LOG.trace("Request parameter: phoneNumber --> "
 				+ userInfo.getPhoneNumber());
 
-		/*String email = String.valueOf(request.getParameter("email"));
-		userInfo.setEmail(email);
-		LOG.trace("Request parameter: email --> " + userInfo.getEmail());*/
 
 		if (firstName == null || lastName == null || passportNumber == null
 				|| phoneNumber == null || firstName.isEmpty()

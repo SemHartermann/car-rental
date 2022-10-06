@@ -68,7 +68,6 @@ public class MySqlOrderDAO implements OrderDAO {
             try {
                 throw new DBException(Messages.ERR_CANNOT_OBTAIN_ORDERS, ex);
             } catch (DBException e) {
-
                 throw new RuntimeException(e);
             }
 

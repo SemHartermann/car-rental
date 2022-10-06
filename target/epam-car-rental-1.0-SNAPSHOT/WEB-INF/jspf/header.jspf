@@ -55,13 +55,12 @@
             </c:if>
             <t:NewTag/>
 
-            <%--<a href="controller?command=viewLocale"><fmt:message key='locale.header'/></a>--%>
             <form >
                 <a class="btn btn-outline-dark" href="controller?command=logout"><fmt:message key='logout.header'/></a>
                 <input type="hidden" name="command" value="changeLocale"/>
                 <select class="btn btn-outline-dark" name="locale">
-                    <option value="ru">ru</option>
                     <option value="en">en</option>
+                    <option value="ru">ru</option>
                 </select>
                 <input class="btn btn-outline-dark" type="submit"
                        value="<fmt:message key='locale.save'/>"/>
@@ -70,12 +69,5 @@
     </nav>
 
 </c:if>
-<%--<c:if test="${empty user and title ne 'Login'}">
-    <div id="rightHeader">
-        <a href="login.jsp"><fmt:message key='login.header'/></a>
-        |
-        <a href="register.jsp"><fmt:message key='register.header'/></a>
-    </div>
-</c:if>--%>
 
 

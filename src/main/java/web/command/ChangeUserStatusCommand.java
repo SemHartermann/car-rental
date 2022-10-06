@@ -15,8 +15,6 @@ import java.io.IOException;
 
 public class ChangeUserStatusCommand extends Command {
 
-	private static final long serialVersionUID = 3124619669223055442L;
-
 	private static final Logger LOG = Logger
 			.getLogger(ChangeUserStatusCommand.class);
 

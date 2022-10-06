@@ -21,6 +21,7 @@ public class ChangeLocaleCommand extends Command {
 		LOG.debug("ChangeLocaleCommand starts");
 		HttpSession session = request.getSession();
 		String locale = request.getParameter("locale");
+
 		// set new locale to session
 		session.setAttribute("currentLocale", locale);
 		LOG.trace("Set the session attribute: currentLocale --> " + locale);

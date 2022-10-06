@@ -34,11 +34,13 @@ public class DBManager {
             con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         } catch (ClassNotFoundException e) {
             LOG.error("Driver not found");
-            //throw new ClassNotFoundException(e);
-            e.printStackTrace();
+            try {
+                throw new ClassNotFoundException();
+            } catch (ClassNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
         } catch (SQLException e) {
             LOG.fatal("Unable to get connection");
-            //throw new RuntimeException(e);
             throw new SQLException(e);
         }
 
