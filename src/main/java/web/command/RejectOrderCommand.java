@@ -16,7 +16,6 @@ import java.io.IOException;
 
 public class RejectOrderCommand extends Command {
 
-	private static final long serialVersionUID = 4055593803407561664L;
 
 	private static final Logger LOG = Logger
 			.getLogger(RejectOrderCommand.class);

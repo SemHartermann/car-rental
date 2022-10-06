@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class DeleteCarByIdCommand extends Command {
 
-	private static final long serialVersionUID = -621617257255814394L;
+
 
 	private static final Logger LOG = Logger
 			.getLogger(DeleteCarByIdCommand.class);

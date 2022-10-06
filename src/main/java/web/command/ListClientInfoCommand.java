@@ -18,7 +18,6 @@ import java.util.List;
 
 public class ListClientInfoCommand extends Command {
 
-	private static final long serialVersionUID = 2355012921147521257L;
 
 	private static final Logger LOG = Logger
 			.getLogger(ListClientInfoCommand.class);

@@ -12,8 +12,6 @@ import java.io.IOException;
 
 public class ViewLocaleCommand extends Command {
 
-	private static final long serialVersionUID = -6147369041314448450L;
-
 	private static final Logger LOG = Logger.getLogger(ViewLocaleCommand.class);
 
 	public String execute(HttpServletRequest request,

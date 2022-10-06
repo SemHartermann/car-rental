@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class ManagerCommand extends Command {
 
-	private static final long serialVersionUID = -6803735476158533651L;
 
 	private static final Logger LOG = Logger.getLogger(ManagerCommand.class);
 

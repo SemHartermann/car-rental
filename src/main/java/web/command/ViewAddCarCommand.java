@@ -9,12 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * View add car command.
- * 
- * @author A.Yegorov
- *
- */
 public class ViewAddCarCommand extends Command {
 
 	private static final long serialVersionUID = -5788346932961037607L;

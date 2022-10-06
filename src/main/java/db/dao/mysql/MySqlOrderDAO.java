@@ -5,12 +5,12 @@ import db.DBManager;
 import db.Fields;
 import db.dao.DaoFactory;
 import db.dao.OrderDAO;
+import db.entities.Car;
 import db.entities.Order;
 import db.exceptions.DBException;
 import db.exceptions.Messages;
 import org.apache.log4j.Logger;
-import util.PriceCalculator;
-import util.TimeIntervalCalculator;
+import util.DateUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -133,11 +133,10 @@ public class MySqlOrderDAO implements OrderDAO {
             pstmt.setDate(4, order.getStartDate());
             pstmt.setDate(5, order.getEndDate());
 
-            int days = TimeIntervalCalculator.getDays(order.getStartDate(),order.getEndDate());
-            int price = PriceCalculator.getPrice(
-                    DaoFactory.getCarDaoInstance().findCarById(order.getCarId()).getCarPrice(),
-                    DaoFactory.getCarDaoInstance().findCarById(order.getCarId()).getCarDriverPrice(),
-                    days);
+            int days = (int) DateUtil.fullDaysBetweenDates(
+                    order.getStartDate(), order.getEndDate());
+            LOG.info("days between dates --> "+days);
+            int price = calc(order) * days;
 
             pstmt.setInt(6, price);
             pstmt.setInt(7, order.getStatusId()+1);
@@ -146,10 +145,23 @@ public class MySqlOrderDAO implements OrderDAO {
 
             LOG.error(Messages.ERR_CANNOT_CREATE_ORDER, ex);
 
+        } catch (DBException e) {
+            throw new RuntimeException(e);
         } finally {
 
         }
         return order;
+    }
+
+    private int calc(Order order) throws DBException {
+        int price;
+        Car car = DaoFactory.getCarDaoInstance().findCarById(order.getCarId());
+        if (order.isDriverStatus()) {
+            price = car.getCarDriverPrice();
+        } else {
+            price = car.getCarPrice();
+        }
+        return price;
     }
 
     public void updateOrderStatus(Order order) throws DBException {

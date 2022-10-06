@@ -15,7 +15,6 @@ import java.io.IOException;
 
 public class UpdateUserInfoCommand extends Command {
 
-	private static final long serialVersionUID = 4117087725692801116L;
 
 	private static final Logger LOG = Logger
 			.getLogger(UpdateUserInfoCommand.class);
@@ -50,18 +49,6 @@ public class UpdateUserInfoCommand extends Command {
 		userInfo.setPhoneNumber(phoneNumber);
 		LOG.trace("Request parameter: phoneNumber --> " + userInfo.getPhoneNumber());
 
-
-		/*if (firstName == null || lastName == null || passportNumber == null
-				|| phoneNumber == null || firstName.isEmpty()
-				|| lastName.isEmpty() || passportNumber.isEmpty()
-				|| phoneNumber.isEmpty()) {
-			String errorMessasge = "empty field";
-			session.setAttribute("errorMessage", errorMessasge);
-			LOG.error("Set the session attribute: errorMessage --> "
-					+ errorMessasge);
-			LOG.debug("UpdateUserInfoCommand finished");
-			return web.Path.PAGE_ERROR_PAGE;
-		}*/
 
 		LOG.trace("Update userInfo --> " + userInfo);
 		DaoFactory.getUserInfoDAOInstance().updateUserInfo(userInfo);

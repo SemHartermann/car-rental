@@ -13,7 +13,6 @@ import java.io.IOException;
 
 public class LogoutCommand extends Command {
 
-	private static final long serialVersionUID = 1002537753391323906L;
 
 	private static final Logger LOG = Logger.getLogger(LogoutCommand.class);
 

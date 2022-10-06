@@ -25,9 +25,6 @@ public final class Path {
 
 
 
-
-    public static final String PAGE_UPDATE_NEW = "/WEB-INF/jsp/admin/new.jsp";
-
     // manager
     public static final String PAGE_MANAGER = "/WEB-INF/jsp/manager/manager.jsp";
     public static final String PAGE_LIST_ORDERS = "/WEB-INF/jsp/manager/list_orders.jsp";
@@ -44,9 +41,4 @@ public final class Path {
     public static final String PAGE_LIST_ORDERS_BY_USER_ID = "/WEB-INF/jsp/client/list_orders_by_user_id.jsp";
     public static final String PAGE_SORT_BY_SOMETHING = "/WEB-INF/jsp/client/list_selection_cars.jsp";
 
-    // commands
-    public static final String COMMAND_LIST_ORDERS = "/controller?command=userOrderBeanList";
-    public static final String COMMAND_LIST_ORDER = "/controller?command=orderList";
-    public static final String COMMAND_LIST_CARS = "/controller?command=carsList";
-    public static final String COMMAND_LIST_CARS_SORT = "controller?command=carsList";
 }

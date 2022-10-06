@@ -17,8 +17,6 @@ import java.util.List;
 
 public class RegisterCommand extends Command {
 
-	private static final long serialVersionUID = -628192664155997686L;
-
 	private static final Logger LOG = Logger.getLogger(RegisterCommand.class);
 
 	@Override

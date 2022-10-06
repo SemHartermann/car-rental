@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class ViewChangeUserStatusCommand extends Command {
 
-	private static final long serialVersionUID = 6877145183829473251L;
 
 	private static final Logger LOG = Logger
 			.getLogger(ViewChangeUserStatusCommand.class);

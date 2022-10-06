@@ -14,8 +14,6 @@ import java.io.IOException;
 
 public class ViewUpdateUserInfoCommand extends Command {
 
-	private static final long serialVersionUID = -8007538086621939654L;
-
 	private static final Logger LOG = Logger
 			.getLogger(ViewUpdateUserInfoCommand.class);
 
