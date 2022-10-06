@@ -11,39 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Main servlet controller.
- * 
- * @author A.Yegorov
- *
- */
+
 public class Controller extends HttpServlet {
 
-	private static final long serialVersionUID = -6456442845268840997L;
 
 	private static final Logger LOG = Logger.getLogger(Controller.class);
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
 
-	/**
-	 * Main method of this controller.
-	 */
+
 	private void process(HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException {
 
