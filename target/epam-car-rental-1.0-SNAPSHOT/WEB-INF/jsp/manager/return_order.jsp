@@ -24,11 +24,7 @@
 
 					<input type="hidden" name="command" value="returnCar"/>
 
-					<fieldset >
-						<legend><fmt:message key='return_order.id'/></legend>
-						<input type="text" name="id" required pattern="\d{1,10}" min="0"  max="2147483647" 
-				title="Only numbers, max=2147483647"/><br/>
-					</fieldset><br/>
+					<input type="hidden" name="id" value="${orderId}">
 					<fieldset>
 						<legend><fmt:message key='return_order.damage'/></legend>
 						<input type="checkbox" name="damage"/>

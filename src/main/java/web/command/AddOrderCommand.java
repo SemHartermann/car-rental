@@ -127,6 +127,6 @@ public class AddOrderCommand extends Command {
 		LOG.trace("Set the session attribute: orderId --> " + orderId);
 
 		LOG.debug("AddOrderCommand finished");
-		return Path.PAGE_PAYMENT;
+		return Path.PAGE_CLIENT;
 	}
 }

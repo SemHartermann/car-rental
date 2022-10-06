@@ -16,13 +16,13 @@
 
         <fieldset>
             <legend><fmt:message key='update_client_info.firstName'/></legend>
-            <input class="btn btn-outline-dark" name="firstName" required pattern="\.{3,20}" maxlength="20"
-                   title="from 3 to 20 symbols (Latin or cyrillic alphabet, numbers)"/><br/>
+            <input class="btn btn-outline-dark" name="firstName" required pattern="\w{3,20}" maxlength="20"
+                   title="from 3 to 20 symbols (Latin or cyrillic alphabet)"/><br/>
         </fieldset>
         <br/>
         <fieldset>
             <legend><fmt:message key='update_client_info.lastName'/></legend>
-            <input class="btn btn-outline-dark" name="lastName" required pattern="\.{3,20}" maxlength="20"
+            <input class="btn btn-outline-dark" name="lastName" required pattern="\w{3,20}" maxlength="20"
                    title="from 3 to 20 symbols (Latin or cyrillic alphabet, numbers)"/><br/>
         </fieldset>
         <br/>

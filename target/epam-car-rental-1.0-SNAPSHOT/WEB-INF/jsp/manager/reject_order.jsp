@@ -24,11 +24,7 @@
 
             <input type="hidden" name="command" value="rejectOrder"/>
 
-            <fieldset>
-                <legend><fmt:message key='reject_order.id'/></legend>
-                <input type="text" name="id" required pattern="\d{1,10}" min="0" max="2147483647"
-                       title="Only numbers, max=2147483647"/><br/>
-            </fieldset>
+            <input type="hidden" name="id" value="${orderId}">
             <br/>
             <fieldset>
                 <legend><fmt:message key='reject_order.rejectionReason'/></legend>

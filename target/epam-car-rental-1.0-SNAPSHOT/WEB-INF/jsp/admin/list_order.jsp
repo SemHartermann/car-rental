@@ -37,7 +37,7 @@
                         <div class="col border-start">${order.endDate}</div>
                         <div class="col border-start">${order.price}</div>
                         <div class="col border-start">${order.statusId}</div>
-                        <div class="col border-start">${order.rejectionReason}</div>
+                        <div style="width: 100px; word-wrap:break-word; table-layout: fixed;" class="col border-start" class="col border-start">${order.rejectionReason}</div>
                         <div class="col border-start">${order.damage}</div>
                         <div class="col border-start">${order.priceForRepairs}</div>
                     </div>

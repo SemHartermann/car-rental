@@ -28,6 +28,24 @@ public class ViewListCarsCommand extends Command {
 
 		LOG.trace("Found in DB: cars --> " + cars);
 
+		Set<String> selectCarsClass = new HashSet<>();
+		for (Car car : cars) {
+			selectCarsClass.add(car.getCarClass());
+		}
+
+		request.setAttribute("selectCarsClass", selectCarsClass);
+		LOG.trace("Set the request attribute: selectCarsClass --> "
+				+ selectCarsClass);
+
+		Set<String> selectCarsMark = new HashSet<>();
+		for (Car car : cars) {
+			selectCarsMark.add(car.getMark());
+		}
+
+		request.setAttribute("selectCarsMark", selectCarsMark);
+		LOG.trace("Set the request attribute: selectCarsMark --> "
+				+ selectCarsMark);
+
 		request.setAttribute("carsList", cars);
 		LOG.trace("Set the request attribute: carsList --> " + cars);
 

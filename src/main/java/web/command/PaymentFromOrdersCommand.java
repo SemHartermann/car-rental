@@ -21,6 +21,9 @@ public class PaymentFromOrdersCommand extends Command {
         LOG.trace("Set the session attribute: price --> " + request.getParameter("price"));
         session.setAttribute("orderId",Integer.parseInt(request.getParameter("orderId")));
         LOG.trace("Set the session attribute: orderId --> " + request.getParameter("orderId"));
+        LOG.trace("Set the session attribute: damage --> " + request.getParameter("damage"));
+        session.setAttribute("damage",(request.getParameter("damage")));
+
         return Path.PAGE_PAYMENT;
     }
 }

@@ -63,6 +63,7 @@ public class ReturnCarCommand extends Command {
 		LOG.trace("Request parameter: damage --> " + order.isDamage());
 
 		if (order.isDamage()) {
+			statusReject = Status.DAMAGED.ordinal();
 			String price = request.getParameter("priceForRepairs");
 			if (price.isEmpty()) {
 				String errorMessasge = "Price cannot be empty";

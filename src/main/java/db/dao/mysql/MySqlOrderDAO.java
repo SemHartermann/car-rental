@@ -47,6 +47,7 @@ public class MySqlOrderDAO implements OrderDAO {
             order.setPrice(rs.getInt(Fields.ORDER_PRICE));
             order.setStatusId(rs.getInt(Fields.ORDER_STATUS_ID));
             order.setRejectionReason(rs.getString(Fields.ORDER_REJECTION_REASON));
+            order.setDamage(rs.getBoolean(Fields.ORDER_DAMAGE));
         } catch (SQLException e) {
             e.printStackTrace();
         }

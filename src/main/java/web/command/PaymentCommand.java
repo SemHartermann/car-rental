@@ -30,7 +30,14 @@ public class PaymentCommand extends Command {
 		Order order = DaoFactory.getOrderDaoInstance().findOrderById(orderId);
 		LOG.trace("Found in BD: order --> " + order);
 
-		int statusIdConfirm = Status.PAID.ordinal();
+		LOG.trace("Get parameter: damage --> " + order.isDamage());
+		boolean damaged = order.isDamage();
+
+		int statusIdConfirm;
+		if (!damaged) {
+			statusIdConfirm = Status.PAID.ordinal();
+		}else
+			statusIdConfirm = Status.CLOSED.ordinal();
 		int statusIdRefuse = Status.CLOSED.ordinal();
 
 		String result = request.getParameter("result");

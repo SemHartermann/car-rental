@@ -10,12 +10,13 @@
 <div class="content">
 
 		<%@ include file="/WEB-INF/jspf/header.jspf"%>
-
+	<c:set var="damage" scope="session" value="damage"/>
 	<p><fmt:message key='payment.name'/><myT:orderprice price="${price}"></myT:orderprice></p>
 
 				<form id="login_form" action="controller" method="post">
 					<input type="hidden" name="command" value="payment" /> 
-					<input type="hidden" name="result" value="success" />  
+					<input type="hidden" name="result" value="success" />
+					<input type="hidden" name="damage" value="${damage}" />
 					<input class="btn btn-outline-dark" type="submit" value="<fmt:message key='payment.pay'/>">
 				</form>
 				<form id="login_form" action="controller" method="post">

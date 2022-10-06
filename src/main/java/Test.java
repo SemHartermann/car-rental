@@ -1,12 +1,9 @@
 
-import db.DBManager;
 import db.dao.DaoFactory;
+import db.dao.mysql.MySqlOrderDAO;
 import db.entities.*;
 import db.exceptions.DBException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +13,10 @@ public class Test {
 
         List<UserInfo> userInfoList = new ArrayList<>();
 
-        userInfoList.clear();
+        MySqlOrderDAO order = DaoFactory.getOrderDaoInstance();
 
-        System.out.println(userInfoList.size());
+
+        System.out.println(order.findOrderById(32).isDamage());
 
 
     }

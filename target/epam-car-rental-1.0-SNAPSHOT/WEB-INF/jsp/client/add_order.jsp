@@ -17,12 +17,6 @@
 		<c:set var="carId" value="${sessionScope.carId}"/>
 		<input type="hidden" name="carId" value="carId"/>
 
-
-		<%--<fieldset >
-			<legend><fmt:message key='add_order.carId'/></legend>
-			<input type="text" name="carId" required pattern="\d{1,10}" min="0"  max="2147483647"
-				   title="Only numbers, max=2147483647"/><br/>
-		</fieldset><br/><br/>--%>
 		<fieldset>
 			<legend><fmt:message key='add_order.driverStatus'/></legend>
 			<input type="checkbox" name="driverStatus"/><br/>

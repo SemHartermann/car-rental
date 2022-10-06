@@ -41,20 +41,35 @@
                         <div class="col border-start">${bean.endDate}</div>
                         <div class="col border-start">${bean.orderPrice}</div>
                         <div class="col border-start">${bean.statusName}</div>
-                        <div class="col border-start">${bean.rejectionReason}</div>
+                        <div style="width: 100px; word-wrap:break-word; table-layout: fixed;" class="col border-start"
+                             class="col border-start">${bean.rejectionReason}</div>
                         <div class="col border-start">${bean.damage}</div>
                         <div class="col border-start">${bean.priceForRepairs}</div>
                         <div class="col border-start">
-                        <c:set var="confirmed" scope="session" value="confirmed"/>
-                        <c:if test="${bean.statusName == confirmed}">
-                            <form id="Payment_from_orders_form" action="controller" method="post">
-                                <input type="hidden" name="command" value="paymentFromOrders"/>
-                                <input type="hidden" name="price" value="${bean.orderPrice}"/>
-                                <input type="hidden" name="orderId" value="${bean.id}"/>
-                                <input type="submit" class="btn btn-outline-dark"
-                                                        value="<fmt:message key='list_orders_by_user_id.payment'/>">
-                            </form>
-                        </c:if>
+                            <c:set var="confirmed" scope="session" value="confirmed"/>
+                            <c:if test="${bean.statusName == confirmed}">
+                                <form id="Payment_from_orders_form" action="controller" method="post">
+                                    <input type="hidden" name="command" value="paymentFromOrders"/>
+                                    <input type="hidden" name="price" value="${bean.orderPrice}"/>
+                                    <input type="hidden" name="orderId" value="${bean.id}"/>
+                                    <input type="hidden" name="damage" value="${bean.damage}"/>
+                                    <input type="submit" class="btn btn-outline-dark"
+                                           value="<fmt:message key='list_orders_by_user_id.payment'/>">
+                                </form>
+                            </c:if>
+                            <c:if test="${bean.damage}">
+                                <c:set var="closed" scope="session" value="closed"/>
+                                <c:if test="${bean.statusName != closed}">
+                                    <form id="Payment_from_orders_form" action="controller" method="post">
+                                        <input type="hidden" name="command" value="paymentFromOrders"/>
+                                        <input type="hidden" name="price" value="${bean.priceForRepairs}"/>
+                                        <input type="hidden" name="orderId" value="${bean.id}"/>
+                                        <input type="hidden" name="damage" value="${bean.damage}"/>
+                                        <input type="submit" class="btn btn-outline-dark"
+                                               value="<fmt:message key='list_orders_by_user_id.payment'/>">
+                                    </form>
+                                </c:if>
+                            </c:if>
                         </div>
                     </div>
                 </c:forEach>
