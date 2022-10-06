@@ -1,5 +1,6 @@
 package web.command;
 
+import db.entities.UserInfo;
 import db.entities.enums.Role;
 import db.dao.DaoFactory;
 import db.entities.User;
@@ -60,8 +61,13 @@ public class RegisterCommand extends Command {
 			}
 		}
 
-		DaoFactory.getUserDaoInstance().addUser(user);
+
+
 		LOG.trace("Create new user --> " + user);
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserId(DaoFactory.getUserDaoInstance().addUser(user).getId());
+		DaoFactory.getUserInfoDAOInstance().addUserInfo(userInfo);
+		LOG.trace("Create new userInfo --> " + userInfo);
 
 		session.setAttribute("login", user.getEmail());
 

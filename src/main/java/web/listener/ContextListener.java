@@ -52,10 +52,10 @@ public class ContextListener implements ServletContextListener {
 	private void initI18n(ServletContext context) throws IOException {
 		String localesFileName = context.getInitParameter("locales");
 
-		// obtain reale path on server
+		// obtain real path on server
 		String localesFileRealPath = context.getRealPath(localesFileName);
 		FileInputStream fin = null;
-		// locad descriptions
+		// local descriptions
 		Properties locales = new Properties();
 		try {
 			fin = new FileInputStream(localesFileRealPath);
